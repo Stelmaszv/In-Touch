@@ -9,5 +9,11 @@
     </head>
     <body>
         <app-root></app-root>
+        {% load static %}
+        <script  src="{% static "runtime.js" %}"    defer></script>
+        <script  src="{% static "polyfills.js" %}"  defer></script>
+        <script  src="{% static "styles.js" %}"     defer></script>
+        <script  src="{% static "vendor.js" %}"     defer></script>
+        <script  src="{% static "main.js" %}"       defer></script>
     </body>
 </html>
