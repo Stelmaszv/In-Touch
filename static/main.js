@@ -370,7 +370,7 @@ class MianappComponent {
     constructor(http, translate) {
         this.http = http;
         this.translate = translate;
-        this.test_url = 'http://127.0.0.1:8000/api';
+        this.test_url = 'https://djangoherokupl.herokuapp.com/api';
         translate.addLangs(['en', 'pl']);
         translate.setDefaultLang('en');
         translate.use('en');
