@@ -53,6 +53,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'heroku.urls'
+ASGI_APPLICATION = "heroku.routing.application"
 
 TEMPLATES = [
     {
