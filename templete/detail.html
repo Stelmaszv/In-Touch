@@ -16,7 +16,7 @@
         <script  src="{% static "vendor.js" %}"     defer></script>
         <script  src="{% static "main.js" %}"       defer></script>
          <script>
-          let url= 'ws://djangoherokupl.herokuapp.com/test'
+          let url= 'HTTPS://djangoherokupl.herokuapp.com/test'
           var socket =new WebSocket(url)
           socket.onmessage=function(e){
             console.log(e.data)
