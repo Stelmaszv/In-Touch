@@ -25,7 +25,7 @@ SECRET_KEY = '^$pm=xwj1znq+vm3pfm$j7%3^+0m5l-msgg8r9gm7pe06ft3&k'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://intouchpl.herokuapp.com/']
+ALLOWED_HOSTS = ['intouchpl.herokuapp.com']
 
 
 # Application definition
