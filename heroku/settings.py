@@ -32,13 +32,13 @@ ALLOWED_HOSTS = ['djangoherokupl.herokuapp.com']
 # Application definition
 
 INSTALLED_APPS = [
+    'channels',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'channels',
     'rest_framework'
 ]
 
