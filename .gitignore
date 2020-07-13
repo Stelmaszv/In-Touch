@@ -1,4 +1,4 @@
 venv-intouch/
 .idea/
-nenvdata/
+backend/nenvdata/
 backend/static
