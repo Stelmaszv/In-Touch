@@ -10,5 +10,5 @@ class nenv_manage:
     def set_DEBUG(self):
         if self.DEBUG:
             self.ALLOWED_HOSTS=[]
-            self.STATICFILES_DIRS='/deploy'
+            self.DEPLOY='/deploy'
         return self.ALLOWED_HOSTS
