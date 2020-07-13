@@ -123,5 +123,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'deploy/assets')
 MEDIA_URL = '/assets/'
 
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, '/deploy'),
+    os.path.join(BASE_DIR, 'deploy'),
 )
