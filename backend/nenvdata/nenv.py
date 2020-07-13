@@ -1,7 +1,7 @@
 class nenv_manage:
     ALLOWED_HOSTS = ['intouchpl.herokuapp.com']
     SECRET_KEY = '^$pm=xwj1znq+vm3pfm$j7%3^+0m5l-msgg8r9gm7pe06ft3&k'
-    DEBUG = True
+    DEBUG = False
     STATICFILES_DIRS = 'backend/static'
     def __init__(self):
         self.set_DEBUG()
