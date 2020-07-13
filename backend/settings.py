@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 import os
 from backend.nenv import nenv_manage
 nenv_manage=nenv_manage()
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -28,9 +29,7 @@ DEBUG = nenv_manage.DEBUG
 
 ALLOWED_HOSTS = nenv_manage.ALLOWED_HOSTS
 
-
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -81,7 +80,6 @@ DATABASES = {
     }
 }
 
-
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
 
@@ -117,10 +115,15 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
-STATIC_ROOT =os.path.join(BASE_DIR,'backend/static')
 
-STATIC_URL='/backend/static/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'deploy/assets')
+
+MEDIA_URL = '/assets/'
+
+STATIC_ROOT =os.path.join(BASE_DIR,'/deploy')
+
+STATIC_URL = '/deploy/'
 
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, nenv_manage.STATICFILES_DIRS),
+    os.path.join(BASE_DIR, 'deploy'),
 )
