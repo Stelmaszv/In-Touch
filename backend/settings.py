@@ -120,7 +120,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'deploy/assets')
 
 MEDIA_URL = '/assets/'
 
-STATIC_ROOT =os.path.join(BASE_DIR,'deploy')
+STATIC_ROOT =os.path.join(BASE_DIR,nenv_manage.DEPLOY)
 
 STATIC_URL = '/deploy/'
 
