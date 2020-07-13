@@ -122,6 +122,3 @@ STATIC_URL = '/deploy/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'deploy/assets')
 MEDIA_URL = '/assets/'
 
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, nenv_manage.DEPLOY),
-)
