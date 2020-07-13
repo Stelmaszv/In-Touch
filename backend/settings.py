@@ -121,5 +121,5 @@ STATIC_ROOT =os.path.join(BASE_DIR,'backend/static')
 STATIC_URL='/backend/static/'
 
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'backend/static'),
+    os.path.join(BASE_DIR, 'static'),
 )
