@@ -119,6 +119,3 @@ USE_TZ = True
 STATIC_ROOT = os.path.join(BASE_DIR, 'deploy')
 STATIC_URL = '/deploy/'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'deploy/assets')
-MEDIA_URL = '/assets/'
-
