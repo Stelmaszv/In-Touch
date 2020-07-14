@@ -23,7 +23,7 @@ SECRET_KEY = '56wbfpfti#*+uy!d&lwoo^j0l-1eu8qbc5c^c%hl2e4qblgf2i'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://intouchpl.herokuapp.com/']
+ALLOWED_HOSTS = ['djangoherokupl.herokuapp.com']
 
 
 # Application definition
@@ -50,13 +50,13 @@ MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware'
 ]
 
-ROOT_URLCONF = 'backend.urls'
-ASGI_APPLICATION = "backend.routing.application"
+ROOT_URLCONF = 'heroku.urls'
+ASGI_APPLICATION = "heroku.routing.application"
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR,'backend/templete')],
+        'DIRS': [os.path.join(BASE_DIR,'templete')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -69,7 +69,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'backend.wsgi.application'
+WSGI_APPLICATION = 'heroku.wsgi.application'
 
 
 # Database
@@ -120,17 +120,17 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'deply/assets')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'assets')
 
 MEDIA_URL = '/assets/'
 
-STATIC_ROOT =os.path.join(BASE_DIR,'deply')
+STATIC_ROOT =os.path.join(BASE_DIR,'static')
 STATIC_URL = '/static/'
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'deply'),
+    os.path.join(BASE_DIR, 'static'),
 )
 django_heroku.settings(locals())
 
