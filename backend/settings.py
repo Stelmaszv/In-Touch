@@ -30,14 +30,12 @@ ALLOWED_HOSTS = nenv_manage.ALLOWED_HOSTS
 # Application definition
 
 INSTALLED_APPS = [
-    'channels',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework'
 ]
 
 MIDDLEWARE = [
@@ -48,7 +46,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware'
 ]
 
 ROOT_URLCONF = 'backend.urls'
@@ -125,10 +122,8 @@ MEDIA_URL = '/assets/'
 STATIC_ROOT =os.path.join(BASE_DIR,'deploy')
 STATIC_URL = '/static/'
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'deploy'),
+    os.path.join(BASE_DIR, nenv_manage.DEPLOY),
 )
 if nenv_manage.DEPLOY_SETINGS is False:
     import django_heroku
