@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = nenv_manage.SECRET_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = nenv_manage.DEBUG
+DEBUG = True
 
 ALLOWED_HOSTS = nenv_manage.ALLOWED_HOSTS
 
