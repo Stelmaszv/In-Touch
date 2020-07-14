@@ -8,7 +8,6 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
-import django_heroku
 from backend.nenv import nenv_manage
 nenv_manage=nenv_manage()
 
@@ -123,17 +122,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'deploy/assets')
 
 MEDIA_URL = '/assets/'
 
-STATIC_ROOT =os.path.join(BASE_DIR,'deploy')
+STATIC_ROOT =os.path.join(BASE_DIR,nenv_manage.DEPLOY)
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'deploy'),
 )
-django_heroku.settings(locals())
-
-REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authentication.BasicAuthentication',
-        'rest_framework.authentication.SessionAuthentication',
-    ]
-}
