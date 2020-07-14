@@ -14,7 +14,7 @@ SECRET_KEY = '56wbfpfti#*+uy!d&lwoo^j0l-1eu8qbc5c^c%hl2e4qblgf2i'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['djangoherokupl.herokuapp.com']
+ALLOWED_HOSTS = ['https://intouchpl.herokuapp.com/']
 
 
 # Application definition
@@ -41,8 +41,8 @@ MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware'
 ]
 
-ROOT_URLCONF = 'heroku.urls'
-ASGI_APPLICATION = "heroku.routing.application"
+ROOT_URLCONF = 'backend.urls'
+ASGI_APPLICATION = "backend.routing.application"
 
 TEMPLATES = [
     {
@@ -60,7 +60,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'heroku.wsgi.application'
+WSGI_APPLICATION = 'backend..wsgi.application'
 
 
 # Database
