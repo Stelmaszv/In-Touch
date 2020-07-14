@@ -8,8 +8,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
-from backend.nenv import nenv_manage
-nenv_manage=nenv_manage()
+import django_heroku
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -19,12 +18,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = nenv_manage.SECRET_KEY
+SECRET_KEY = '56wbfpfti#*+uy!d&lwoo^j0l-1eu8qbc5c^c%hl2e4qblgf2i'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = nenv_manage.DEBUG
+DEBUG = True
 
-ALLOWED_HOSTS = nenv_manage.ALLOWED_HOSTS
+ALLOWED_HOSTS = ['djangoherokupl.herokuapp.com']
 
 
 # Application definition
@@ -57,7 +56,7 @@ ASGI_APPLICATION = "backend.routing.application"
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR,'backend/templete')],
+        'DIRS': [os.path.join(BASE_DIR,'templete')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -70,7 +69,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'backend.wsgi.application'
+WSGI_APPLICATION = 'heroku.wsgi.application'
 
 
 # Database
@@ -133,6 +132,11 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'deploy'),
 )
-if nenv_manage.DEBUG is False:
-    import django_heroku
-    django_heroku.settings(locals())
+django_heroku.settings(locals())
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ]
+}
