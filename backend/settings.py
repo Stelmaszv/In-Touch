@@ -47,7 +47,7 @@ ASGI_APPLICATION = "backend.routing.application"
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR,'templete')],
+        'DIRS': [os.path.join(BASE_DIR,'backend/templete')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
