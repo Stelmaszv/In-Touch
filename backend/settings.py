@@ -8,7 +8,8 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
-import django_heroku
+from backend.nenv import nenv_manage
+nenv_manage=nenv_manage()
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -18,12 +19,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '56wbfpfti#*+uy!d&lwoo^j0l-1eu8qbc5c^c%hl2e4qblgf2i'
+SECRET_KEY = nenv_manage.SECRET_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = nenv_manage.DEBUG
 
-ALLOWED_HOSTS = ['djangoherokupl.herokuapp.com']
+ALLOWED_HOSTS = nenv_manage.ALLOWED_HOSTS
 
 
 # Application definition
@@ -132,11 +133,6 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'deploy'),
 )
-django_heroku.settings(locals())
-
-REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authentication.BasicAuthentication',
-        'rest_framework.authentication.SessionAuthentication',
-    ]
-}
+if nenv_manage.DEBUG is False:
+    import django_heroku
+    django_heroku.settings(locals())
