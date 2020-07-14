@@ -27,17 +27,22 @@ webpackEmptyAsyncContext.id = "./$$_lazy_route_resource lazy recursive";
 /*!***************************************!*\
   !*** ./src/app/app-routing.module.ts ***!
   \***************************************/
-/*! exports provided: AppRoutingModule, routingComponents */
+/*! exports provided: AppRoutingModule, routingComponents, Ruter_Data */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppRoutingModule", function() { return AppRoutingModule; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "routingComponents", function() { return routingComponents; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Ruter_Data", function() { return Ruter_Data; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 /* harmony import */ var _sections_login_login_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./sections/login/login.component */ "./src/app/sections/login/login.component.ts");
 /* harmony import */ var _sections_register_register_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./sections/register/register.component */ "./src/app/sections/register/register.component.ts");
+/* harmony import */ var _sections_main_page_main_page_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./sections/main-page/main-page.component */ "./src/app/sections/main-page/main-page.component.ts");
+/* harmony import */ var src_app_gards_auth_gard_auth_guard__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/gards/auth-gard/auth.guard */ "./src/app/gards/auth-gard/auth.guard.ts");
+
+
 
 
 
@@ -46,12 +51,20 @@ __webpack_require__.r(__webpack_exports__);
 
 const routes = [
     {
+        path: '',
+        component: _sections_main_page_main_page_component__WEBPACK_IMPORTED_MODULE_4__["MainPageComponent"],
+        canActivate: [src_app_gards_auth_gard_auth_guard__WEBPACK_IMPORTED_MODULE_5__["Auth_Guard"]],
+        data: { Route_Name: "Main Page" }
+    },
+    {
         path: 'login',
-        component: _sections_login_login_component__WEBPACK_IMPORTED_MODULE_2__["LoginComponent"]
+        component: _sections_login_login_component__WEBPACK_IMPORTED_MODULE_2__["LoginComponent"],
+        data: { Route_Name: "Login" }
     },
     {
         path: 'register',
-        component: _sections_register_register_component__WEBPACK_IMPORTED_MODULE_3__["RegisterComponent"]
+        component: _sections_register_register_component__WEBPACK_IMPORTED_MODULE_3__["RegisterComponent"],
+        data: { Route_Name: "Register" }
     }
 ];
 ;
@@ -69,7 +82,10 @@ AppRoutingModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineI
     }], null, null); })();
 const routingComponents = [
     _sections_login_login_component__WEBPACK_IMPORTED_MODULE_2__["LoginComponent"],
-    _sections_register_register_component__WEBPACK_IMPORTED_MODULE_3__["RegisterComponent"]
+    _sections_register_register_component__WEBPACK_IMPORTED_MODULE_3__["RegisterComponent"],
+];
+const Ruter_Data = [
+    routes
 ];
 
 
@@ -89,8 +105,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _commun_navbar_main_navbar_selector_main_navbar_selector_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./commun/navbar/main-navbar-selector/main-navbar-selector.component */ "./src/app/commun/navbar/main-navbar-selector/main-navbar-selector.component.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 /* harmony import */ var _commun_footer_main_footer_selctor_main_footer_selctor_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./commun/footer/main-footer-selctor/main-footer-selctor.component */ "./src/app/commun/footer/main-footer-selctor/main-footer-selctor.component.ts");
-/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
-
 
 
 
@@ -102,18 +116,11 @@ class AppComponent {
     }
 }
 AppComponent.ɵfac = function AppComponent_Factory(t) { return new (t || AppComponent)(); };
-AppComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: AppComponent, selectors: [["app-root"]], decls: 6, vars: 3, template: function AppComponent_Template(rf, ctx) { if (rf & 1) {
+AppComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: AppComponent, selectors: [["app-root"]], decls: 3, vars: 0, template: function AppComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "app-main-navbar-selector");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "router-outlet");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "p");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](3);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipe"](4, "translate");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](5, "app-main-footer-selctor");
-    } if (rf & 2) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind1"](4, 1, "LOGIN.TITLE"));
-    } }, directives: [_commun_navbar_main_navbar_selector_main_navbar_selector_component__WEBPACK_IMPORTED_MODULE_1__["MainNavbarSelectorComponent"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterOutlet"], _commun_footer_main_footer_selctor_main_footer_selctor_component__WEBPACK_IMPORTED_MODULE_3__["MainFooterSelctorComponent"]], pipes: [_ngx_translate_core__WEBPACK_IMPORTED_MODULE_4__["TranslatePipe"]], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FwcC5jb21wb25lbnQuc2NzcyJ9 */"] });
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](2, "app-main-footer-selctor");
+    } }, directives: [_commun_navbar_main_navbar_selector_main_navbar_selector_component__WEBPACK_IMPORTED_MODULE_1__["MainNavbarSelectorComponent"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterOutlet"], _commun_footer_main_footer_selctor_main_footer_selctor_component__WEBPACK_IMPORTED_MODULE_3__["MainFooterSelctorComponent"]], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FwcC5jb21wb25lbnQuc2NzcyJ9 */"] });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](AppComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
         args: [{
@@ -191,7 +198,7 @@ AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector
                 declarations: [
                     _app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"],
                     _app_routing_module__WEBPACK_IMPORTED_MODULE_2__["routingComponents"],
-                    _commun_commom__WEBPACK_IMPORTED_MODULE_5__["Commom_Components"]
+                    _commun_commom__WEBPACK_IMPORTED_MODULE_5__["Commom_Components"],
                 ],
                 imports: [
                     _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
@@ -312,6 +319,48 @@ MainNavbarSelectorComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["
 
 /***/ }),
 
+/***/ "./src/app/gards/auth-gard/auth.guard.ts":
+/*!***********************************************!*\
+  !*** ./src/app/gards/auth-gard/auth.guard.ts ***!
+  \***********************************************/
+/*! exports provided: Auth_Guard */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Auth_Guard", function() { return Auth_Guard; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var src_app_service_auth_auth_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/app/service/auth/auth.service */ "./src/app/service/auth/auth.service.ts");
+/* harmony import */ var src_app_service_Router_Custum_router_custum_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/service/Router-Custum/router-custum.service */ "./src/app/service/Router-Custum/router-custum.service.ts");
+
+
+
+
+class Auth_Guard {
+    constructor(Auth_Service, router) {
+        this.Auth_Service = Auth_Service;
+        this.router = router;
+    }
+    canActivate() {
+        if (!this.Auth_Service.if_auth()) {
+            this.router.navigate('Login');
+            return false;
+        }
+        return true;
+    }
+}
+Auth_Guard.ɵfac = function Auth_Guard_Factory(t) { return new (t || Auth_Guard)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](src_app_service_auth_auth_service__WEBPACK_IMPORTED_MODULE_1__["Auth_Service"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](src_app_service_Router_Custum_router_custum_service__WEBPACK_IMPORTED_MODULE_2__["Router_Custum_Service"])); };
+Auth_Guard.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"]({ token: Auth_Guard, factory: Auth_Guard.ɵfac, providedIn: 'root' });
+/*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](Auth_Guard, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"],
+        args: [{
+                providedIn: 'root'
+            }]
+    }], function () { return [{ type: src_app_service_auth_auth_service__WEBPACK_IMPORTED_MODULE_1__["Auth_Service"] }, { type: src_app_service_Router_Custum_router_custum_service__WEBPACK_IMPORTED_MODULE_2__["Router_Custum_Service"] }]; }, null); })();
+
+
+/***/ }),
+
 /***/ "./src/app/sections/login/login.component.ts":
 /*!***************************************************!*\
   !*** ./src/app/sections/login/login.component.ts ***!
@@ -328,9 +377,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 class LoginComponent {
-    constructor() { }
-    ngOnInit() {
-    }
 }
 LoginComponent.ɵfac = function LoginComponent_Factory(t) { return new (t || LoginComponent)(); };
 LoginComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: LoginComponent, selectors: [["app-login"]], decls: 3, vars: 3, template: function LoginComponent_Template(rf, ctx) { if (rf & 1) {
@@ -348,6 +394,42 @@ LoginComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineCom
                 selector: 'app-login',
                 templateUrl: './login.component.html',
                 styleUrls: ['./login.component.scss']
+            }]
+    }], null, null); })();
+
+
+/***/ }),
+
+/***/ "./src/app/sections/main-page/main-page.component.ts":
+/*!***********************************************************!*\
+  !*** ./src/app/sections/main-page/main-page.component.ts ***!
+  \***********************************************************/
+/*! exports provided: MainPageComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MainPageComponent", function() { return MainPageComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+
+
+class MainPageComponent {
+    constructor() { }
+    ngOnInit() {
+    }
+}
+MainPageComponent.ɵfac = function MainPageComponent_Factory(t) { return new (t || MainPageComponent)(); };
+MainPageComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: MainPageComponent, selectors: [["app-main-page"]], decls: 2, vars: 0, template: function MainPageComponent_Template(rf, ctx) { if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "p");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "main-page works!");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+    } }, styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3NlY3Rpb25zL21haW4tcGFnZS9tYWluLXBhZ2UuY29tcG9uZW50LnNjc3MifQ== */"] });
+/*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](MainPageComponent, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
+        args: [{
+                selector: 'app-main-page',
+                templateUrl: './main-page.component.html',
+                styleUrls: ['./main-page.component.scss']
             }]
     }], function () { return []; }, null); })();
 
@@ -386,6 +468,95 @@ RegisterComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefine
                 styleUrls: ['./register.component.scss']
             }]
     }], function () { return []; }, null); })();
+
+
+/***/ }),
+
+/***/ "./src/app/service/Router-Custum/router-custum.service.ts":
+/*!****************************************************************!*\
+  !*** ./src/app/service/Router-Custum/router-custum.service.ts ***!
+  \****************************************************************/
+/*! exports provided: Router_Custum_Service */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Router_Custum_Service", function() { return Router_Custum_Service; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var src_app_app_routing_module__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/app/app-routing.module */ "./src/app/app-routing.module.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+
+
+
+
+class Router_Custum_Service {
+    constructor(router) {
+        this.router = router;
+        this.routs = src_app_app_routing_module__WEBPACK_IMPORTED_MODULE_1__["Ruter_Data"][0];
+    }
+    navigate(name) {
+        let url = this.faind_rout(name);
+        url = '/' + url;
+        this.router.navigate([url]);
+    }
+    faind_rout(name) {
+        let found = false;
+        let url;
+        for (let item of this.routs) {
+            if (name === item.data.Route_Name) {
+                found = true;
+                url = item.path;
+            }
+        }
+        if (found) {
+            return url;
+        }
+        try {
+            throw new Error('Rout with name ' + name + ' not found');
+        }
+        catch (e) {
+            console.log(e);
+        }
+    }
+}
+Router_Custum_Service.ɵfac = function Router_Custum_Service_Factory(t) { return new (t || Router_Custum_Service)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"])); };
+Router_Custum_Service.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"]({ token: Router_Custum_Service, factory: Router_Custum_Service.ɵfac, providedIn: 'root' });
+/*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](Router_Custum_Service, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"],
+        args: [{
+                providedIn: 'root'
+            }]
+    }], function () { return [{ type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] }]; }, null); })();
+
+
+/***/ }),
+
+/***/ "./src/app/service/auth/auth.service.ts":
+/*!**********************************************!*\
+  !*** ./src/app/service/auth/auth.service.ts ***!
+  \**********************************************/
+/*! exports provided: Auth_Service */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Auth_Service", function() { return Auth_Service; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+
+
+class Auth_Service {
+    if_auth() {
+        return false;
+    }
+}
+Auth_Service.ɵfac = function Auth_Service_Factory(t) { return new (t || Auth_Service)(); };
+Auth_Service.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"]({ token: Auth_Service, factory: Auth_Service.ɵfac, providedIn: 'root' });
+/*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](Auth_Service, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"],
+        args: [{
+                providedIn: 'root'
+            }]
+    }], null, null); })();
 
 
 /***/ }),
