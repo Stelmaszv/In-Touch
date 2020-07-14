@@ -8,7 +8,6 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
-import django_heroku
 from backend.nenv import nenv_manage
 nenv_manage=nenv_manage()
 
@@ -23,7 +22,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = nenv_manage.SECRET_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = nenv_manage.DEBUG
 
 ALLOWED_HOSTS = nenv_manage.ALLOWED_HOSTS
 
@@ -131,7 +130,9 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'deploy'),
 )
-django_heroku.settings(locals())
+if nenv_manage.DEBUG:
+    import django_heroku
+    django_heroku.settings(locals())
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
