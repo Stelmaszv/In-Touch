@@ -9,8 +9,6 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 import django_heroku
-from backend.nenv import nenv_manage
-nenv_manage=nenv_manage()
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -20,23 +18,25 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = nenv_manage.SECRET_KEY
+SECRET_KEY = '56wbfpfti#*+uy!d&lwoo^j0l-1eu8qbc5c^c%hl2e4qblgf2i'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = nenv_manage.DEBUG
+DEBUG = True
 
-ALLOWED_HOSTS = nenv_manage.ALLOWED_HOSTS
+ALLOWED_HOSTS = ['https://intouchpl.herokuapp.com/']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'channels',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework'
 ]
 
 MIDDLEWARE = [
@@ -46,7 +46,8 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware'
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware'
 ]
 
 ROOT_URLCONF = 'backend.urls'
@@ -119,18 +120,23 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'deploy/assets')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'deply/assets')
 
 MEDIA_URL = '/assets/'
 
-STATIC_ROOT =os.path.join(BASE_DIR,nenv_manage.DEPLOY)
+STATIC_ROOT =os.path.join(BASE_DIR,'deply')
 STATIC_URL = '/static/'
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'deploy'),
+    os.path.join(BASE_DIR, 'deply'),
 )
-
 django_heroku.settings(locals())
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ]
+}
