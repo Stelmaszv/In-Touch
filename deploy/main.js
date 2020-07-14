@@ -492,6 +492,7 @@ __webpack_require__.r(__webpack_exports__);
 class Router_Custum_Service {
     constructor(router) {
         this.router = router;
+        this.routs = [];
         this.routs = src_app_app_routing_module__WEBPACK_IMPORTED_MODULE_1__["Ruter_Data"][0];
     }
     navigate(name) {
