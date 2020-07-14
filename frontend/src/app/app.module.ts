@@ -6,7 +6,8 @@ import { AppComponent } from './app.component';
 import { Commom_Components } from './commun/commom';
 import { HttpClient  } from '@angular/common/http';
 import { TranslateModule , TranslateLoader} from '@ngx-translate/core'
-import {TranslateHttpLoader} from '@ngx-translate/http-loader'
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+
 export function HttpLoaderFactory(http: HttpClient){
   return new TranslateHttpLoader(http);
 }
@@ -14,7 +15,7 @@ export function HttpLoaderFactory(http: HttpClient){
   declarations: [
     AppComponent,
     routingComponents,
-    Commom_Components
+    Commom_Components,
   ],
   imports: [
     BrowserModule,
