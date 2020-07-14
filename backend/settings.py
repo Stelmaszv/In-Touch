@@ -17,7 +17,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['https://intouchpl.herokuapp.com/']
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -37,6 +36,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware'
 ]
 
 ROOT_URLCONF = 'backend.urls'
@@ -115,6 +115,8 @@ MEDIA_URL = '/assets/'
 
 STATIC_ROOT =os.path.join(BASE_DIR,'deploy')
 STATIC_URL = '/static/'
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'deploy'),
