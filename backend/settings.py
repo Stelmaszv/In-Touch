@@ -50,8 +50,8 @@ MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware'
 ]
 
-ROOT_URLCONF = 'heroku.urls'
-ASGI_APPLICATION = "heroku.routing.application"
+ROOT_URLCONF = 'backend.urls'
+ASGI_APPLICATION = "backend.routing.application"
 
 TEMPLATES = [
     {
@@ -69,7 +69,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'heroku.wsgi.application'
+WSGI_APPLICATION = 'backend.wsgi.application'
 
 
 # Database
