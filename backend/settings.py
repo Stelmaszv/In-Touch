@@ -8,6 +8,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import django_heroku
 from backend.nenv import nenv_manage
 nenv_manage=nenv_manage()
 
@@ -128,7 +129,6 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'deploy'),
 )
-if nenv_manage.DEBUG is False:
-    import django_heroku
-    django_heroku.settings(locals())
+
+django_heroku.settings(locals())
 
