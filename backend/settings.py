@@ -130,7 +130,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'deploy'),
 )
-if nenv_manage.DEBUG:
+if nenv_manage.DEBUG is False:
     import django_heroku
     django_heroku.settings(locals())
 
