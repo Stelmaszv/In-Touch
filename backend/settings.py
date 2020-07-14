@@ -128,10 +128,3 @@ STATICFILES_DIRS = (
 if nenv_manage.DEPLOY_SETINGS is False:
     import django_heroku
     django_heroku.settings(locals())
-
-REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authentication.BasicAuthentication',
-        'rest_framework.authentication.SessionAuthentication',
-    ]
-}
