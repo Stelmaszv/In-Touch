@@ -50,13 +50,13 @@ MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware'
 ]
 
-ROOT_URLCONF = 'heroku.urls'
-ASGI_APPLICATION = "heroku.routing.application"
+ROOT_URLCONF = 'backend.urls'
+ASGI_APPLICATION = "backend.routing.application"
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR,'templete')],
+        'DIRS': [os.path.join(BASE_DIR,'backend/templete')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -69,7 +69,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'heroku.wsgi.application'
+WSGI_APPLICATION = 'backend.wsgi.application'
 
 
 # Database
