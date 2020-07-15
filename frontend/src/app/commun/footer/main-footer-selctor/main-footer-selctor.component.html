@@ -1,1 +1,6 @@
-heth
+<div *ngIf="!If_Auth()">
+    <app-footer-nologin></app-footer-nologin>
+</div>
+<div *ngIf="If_Auth()">
+    <app-footer-mian></app-footer-mian>
+</div>

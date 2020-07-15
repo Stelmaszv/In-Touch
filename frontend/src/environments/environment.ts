@@ -1,12 +1,18 @@
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
+class urls{
+  public portfolio = {'href':'http://piotrstelmaszv.byethost7.com/','text':'stelmaszv'}
+}
 class photos{
-  public nav_logo='assets/img/icon.png'
+  private assetsUrl ='assets/img/';
+  public  navLogo   = this.assetsUrl+'icon.png'
 }
 export const environment = {
   production: false,
-  photo:new photos
+  name:'In Touch',
+  photo:new photos,
+  url:new urls
 };
 
 /*

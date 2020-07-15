@@ -1,0 +1,7 @@
+<a href="{{Router.Get_Rout('chooseLanguage')}}">{{ 'FOOTER.chooseLanguage' | translate  }}</a>
+<br>
+<a href="{{Router.Get_Rout('regulations')}}">{{ 'FOOTER.regulations' | translate  }}</a>
+<br>
+{{ 'FOOTER.createdby' | translate  }} <a href="{{environment.url.portfolio.href}}"> {{environment.url.portfolio.text}} </a>
+<br>
+{{environment.name}} {{getTime()}}

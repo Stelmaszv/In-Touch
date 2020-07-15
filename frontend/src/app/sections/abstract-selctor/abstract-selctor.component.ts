@@ -7,7 +7,7 @@ import { TranslateService} from '@ngx-translate/core'
   styleUrls: ['./abstract-selctor.component.scss']
 })
 export class AbstractSelctorComponent{
-  protected constructor(private Auth:Auth_Service,private translate:TranslateService) {  }
+  public constructor(private Auth:Auth_Service,private translate:TranslateService) {  }
   protected setLang(){
     this.translate.addLangs(['en'])
     this.translate.setDefaultLang('en')
