@@ -1,9 +1,12 @@
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
-
+class photos{
+  public nav_logo='assets/img/icon.png'
+}
 export const environment = {
-  production: false
+  production: false,
+  photo:new photos
 };
 
 /*

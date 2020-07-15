@@ -1,16 +1,12 @@
-import { Component} from '@angular/core';
-import { TranslateService} from '@ngx-translate/core'
+import { Component,OnInit} from '@angular/core';
+import {AbstractSelctorComponent } from '../../../sections/abstract-selctor/abstract-selctor.component'
 @Component({
   selector: 'app-main-footer-selctor',
   templateUrl: './main-footer-selctor.component.html',
   styleUrls: ['./main-footer-selctor.component.scss']
 })
-export class MainFooterSelctorComponent {
-
-  constructor(public translate:TranslateService) {
-    translate.addLangs(['en'])
-    translate.setDefaultLang('en')
-    translate.use('en')
+export class MainFooterSelctorComponent extends AbstractSelctorComponent implements OnInit{
+  public ngOnInit(){
+    this.setLang()
   }
-
 }

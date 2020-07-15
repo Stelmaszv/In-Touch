@@ -11,7 +11,7 @@ export class Auth_Guard implements CanActivate {
   public canActivate() : boolean 
   {
     if (!this.Auth_Service.If_Auth()){
-      this.router.navigate('Login');
+      this.router.Navigate('Login');
       return false
     }
     return true

@@ -12,14 +12,17 @@ export class Router_Custum_Service {
     this.routs=Ruter_Data[0]
   }
   
-  public navigate(name:string) :void
+  public Navigate(name:string) :void
   {
-      let url=this.faind_rout(name);
-      url='/'+url
-      this.router.navigate([url]);
+      this.router.navigate([this.Faind_Rout(name)]);
   }
 
-  private faind_rout(name:string) :string
+  public Get_Rout(name:string) :string
+  {
+      return this.Faind_Rout(name)
+  }
+
+  private Faind_Rout(name:string) :string
   {
       let found=false
       let url:string
@@ -31,7 +34,7 @@ export class Router_Custum_Service {
           }
       }
 
-      if (found){return url}
+      if (found){return url='/'+url}
 
       try {
         throw new Error('Rout with name '+name+' not found');

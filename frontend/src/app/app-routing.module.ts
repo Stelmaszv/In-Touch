@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './sections/login/login.component';
 import { RegisterComponent } from './sections/register/register.component';
 import { MainPageComponent } from './sections/main-page/main-page.component';
+import { ChooseLanguageComponent } from './sections/choose-language/choose-language.component';
 import {Auth_Guard} from 'src/app/gards/auth-gard/auth.guard'
 const routes: Routes = [
     { 
@@ -20,6 +21,11 @@ const routes: Routes = [
       path:'register' , 
       component:RegisterComponent,
       data: {Route_Name: "Register"}
+    },
+    {
+      path:'chooseLanguage' , 
+      component:ChooseLanguageComponent,
+      data: {Route_Name: "chooseLanguage"}
     }
 ];;
 
