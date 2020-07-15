@@ -1,1 +1,6 @@
-<p>choose-language works!</p>
+<div *ngFor="let lang of environment.language.langList;" class="langList">
+    <b *ngIf="ifChused(lang); else elseBlock">
+        <img  src="{{lang.img}}"> {{lang.fullname}}
+    </b>
+    <ng-template #elseBlock><img  src="{{lang.img}}"> {{lang.fullname}}</ng-template>
+</div>

@@ -1,6 +1,21 @@
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
+class languages{
+  private assetsUrl ='assets/flags/';
+  public langList = [{'img':'assets/flags/en.gif','name':'en','fullname':'english'},{'img':'assets/flags/pl.png','name':'pl','fullname':'polski'}]
+  public defult   = 'en'
+  public use      = 'en'
+  public langs    = []
+  constructor(){
+    this.setLangs()
+  }
+  private setLangs(){
+    for(const lang in this.langList){
+      this.langs.push(this.langList[lang].name)
+    }
+  }
+}
 class urls{
   public portfolio = {'href':'http://piotrstelmaszv.byethost7.com/','text':'stelmaszv'}
 }
@@ -12,7 +27,8 @@ export const environment = {
   production: false,
   name:'In Touch',
   photo:new photos,
-  url:new urls
+  url:new urls,
+  language:new languages()
 };
 
 /*
