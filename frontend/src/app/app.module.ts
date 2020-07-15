@@ -7,6 +7,8 @@ import { Commom_Components } from './commun/commom';
 import { HttpClient  } from '@angular/common/http';
 import { TranslateModule , TranslateLoader} from '@ngx-translate/core'
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import { LoginNavbarComponent } from './commun/navbar/login-navbar/login-navbar.component';
+import { MainNavbarComponent } from './commun/navbar/main-navbar/main-navbar.component';
 
 export function HttpLoaderFactory(http: HttpClient){
   return new TranslateHttpLoader(http);
@@ -16,6 +18,8 @@ export function HttpLoaderFactory(http: HttpClient){
     AppComponent,
     routingComponents,
     Commom_Components,
+    LoginNavbarComponent,
+    MainNavbarComponent,
   ],
   imports: [
     BrowserModule,

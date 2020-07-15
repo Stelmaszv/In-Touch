@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class Auth_Service {
-  public if_auth() : boolean 
+  public If_Auth() : boolean 
   {
       return false;
   }

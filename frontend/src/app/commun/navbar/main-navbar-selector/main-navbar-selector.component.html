@@ -1,1 +1,6 @@
-<p>main-navbar-selector works!</p>
+<div *ngIf="!If_Auth()">
+    <app-login-navbar></app-login-navbar>
+</div>
+<div *ngIf="If_Auth()">
+    <app-main-navbar></app-main-navbar>
+</div>
