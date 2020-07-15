@@ -1,7 +1,7 @@
 {
     "AUTHLOGIN": {
-        "LOGIN":"login" ,
-        "REGESTRER":"register" 
+        "LOGIN":"Logowanie" ,
+        "REGESTRER":"Rejestracja" 
     },
     "FOOTER":{
         "chooseLanguage":"choose Language",
