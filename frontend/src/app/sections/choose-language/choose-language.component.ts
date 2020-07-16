@@ -11,13 +11,21 @@ export class ChooseLanguageComponent  implements AfterViewInit{
   constructor(private elementRef:ElementRef) {}
   public ifChused(index) :boolean
   {
-    return (index.name==this.environment.language.use);
+    return (index.name==localStorage.getItem('lang'));
   }
-  public ngAfterViewInit() {
-    this.elementRef.nativeElement.querySelectorAll('.langList').addEventListener('click', this.onClick.bind(this));
+  public ngAfterViewInit() :void 
+  {
+    let obj=this
+    this.elementRef.nativeElement.querySelectorAll('.lang').forEach( function ( item ) {
+      item.addEventListener('click', function(event) {
+          obj.onClick(item)
+      });
+    });
   }
-  public onClick(event) {
-    console.log(event);
+  public onClick(item) :void
+  {
+    localStorage.setItem('lang',item.data);
+    window.location.href=''
   }
 }
 

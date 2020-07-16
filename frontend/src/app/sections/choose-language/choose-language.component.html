@@ -1,6 +1,8 @@
-<div *ngFor="let lang of environment.language.langList;" class="langList">
-    <b *ngIf="ifChused(lang); else elseBlock">
-        <img  src="{{lang.img}}"> {{lang.fullname}}
-    </b>
-    <ng-template #elseBlock><img  src="{{lang.img}}"> {{lang.fullname}}</ng-template>
+<div *ngFor="let lang of environment.language.langList;" >
+    <span data="{{lang.name}}" class="lang">
+        <b *ngIf="ifChused(lang); else elseBlock">
+            <img src="{{lang.img}}"> {{lang.fullname}}
+        </b>
+        <ng-template #elseBlock><img  src="{{lang.img}}"> {{lang.fullname}}</ng-template>
+    </span>
 </div>
