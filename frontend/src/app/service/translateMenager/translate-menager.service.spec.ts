@@ -10,7 +10,4 @@ describe('TranslateMenagerService', () => {
     service = TestBed.inject(TranslateMenagerService);
   });
 
-  it('should be created', () => {
-    expect(service).toBeTruthy();
-  });
 });

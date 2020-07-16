@@ -1,5 +1,6 @@
 import { Component} from '@angular/core';
-import {RouterCustumService} from  '../../../service/Router-Custum/router-custum.service'
+
+import {RouterCustumService} from  '../../../service/routerCustum/router-custum.service'
 import {TimeService} from '../../../service/time/time.service'
 import {environment} from '../../../../environments/environment'
 import {TranslateMenagerService} from '../../../service/translateMenager/translate-menager.service'

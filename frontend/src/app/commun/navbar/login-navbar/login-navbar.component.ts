@@ -1,5 +1,5 @@
 import { Component} from '@angular/core';
-import {RouterCustumService} from 'src/app/service/Router-Custum/router-custum.service'
+import {RouterCustumService} from 'src/app/service/routerCustum/router-custum.service'
 import {environment} from 'src/environments/environment'
 @Component({
   selector: 'app-login-navbar',

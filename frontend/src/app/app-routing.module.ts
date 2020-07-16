@@ -5,12 +5,12 @@ import { RegisterComponent } from './sections/register/register.component';
 import { MainPageComponent } from './sections/main-page/main-page.component';
 import { ChooseLanguageComponent } from './sections/choose-language/choose-language.component';
 import { RegulationsComponent } from './sections/regulations/regulations.component';
-import {Auth_Guard} from 'src/app/gards/auth-gard/auth.guard'
+import {AuthGuard} from 'src/app/gards/auth-gard/auth.guard'
 const routes: Routes = [
     { 
       path:'' , 
       component:MainPageComponent,
-      canActivate:[Auth_Guard],
+      canActivate:[AuthGuard],
       data: {Route_Name: "Main Page"}
     },
     { 

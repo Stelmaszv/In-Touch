@@ -6,6 +6,15 @@ import { Injectable } from '@angular/core';
 export class AuthService {
   public ifAuth() : boolean 
   {
-      return false;
+    return (this.getUser()) ? true : false
+  }
+  public getUser(){
+    return JSON.parse(localStorage.getItem('user'));
+  }
+  public createUser(data){
+    localStorage.setItem('user',data)
+  }
+  public logOut(){
+    localStorage.removeItem('user')
   }
 }

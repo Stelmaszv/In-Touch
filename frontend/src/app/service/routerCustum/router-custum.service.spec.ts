@@ -10,7 +10,4 @@ describe('RouterCustumService', () => {
     service = TestBed.inject(RouterCustumService);
   });
 
-  it('should be created', () => {
-    expect(service).toBeTruthy();
-  });
 });
