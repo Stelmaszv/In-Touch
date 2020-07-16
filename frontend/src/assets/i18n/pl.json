@@ -1,11 +1,11 @@
 {
     "AUTHLOGIN": {
-        "LOGIN":"Logowanie" ,
-        "REGESTRER":"Rejestracja" 
+        "LOGIN":"logowanie" ,
+        "REGESTRER":"rejestracja" 
     },
     "FOOTER":{
-        "chooseLanguage":"choose Language",
-        "regulations":"regulations",
-        "createdby":"created by"
+        "chooseLanguage":"wybierz język",
+        "regulations":"regulamin",
+        "createdby":"stworzony przez"
     }
 }
