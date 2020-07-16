@@ -12,9 +12,9 @@ export class RouterCustumService {
     this.routs=Ruter_Data[0]
   }
   
-  public Navigate(name:string) :void
+  public Navigate(name:string) 
   {
-      this.router.navigate([this.Faind_Rout(name)]);
+      return this.router.navigate([this.Faind_Rout(name)]);
   }
 
   public Get_Rout(name:string) :string

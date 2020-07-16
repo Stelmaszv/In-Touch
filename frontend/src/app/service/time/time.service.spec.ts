@@ -10,7 +10,12 @@ describe('TimeService', () => {
     service = TestBed.inject(TimeService);
   });
 
-  it('should be created', () => {
+  it('test if created', () => {
     expect(service).toBeTruthy();
   });
+
+  it('test getData', () => {
+    expect(service.getData()).toBe(2020);
+  });
+
 });
