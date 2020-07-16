@@ -26,12 +26,12 @@ const routes: Routes = [
     {
       path:'chooseLanguage' , 
       component:ChooseLanguageComponent,
-      data: {Route_Name: "chooseLanguage"}
+      data: {Route_Name: "ChooseLanguage"}
     },
     {
       path:'regulations' , 
       component:RegulationsComponent,
-      data: {Route_Name: "regulations"}
+      data: {Route_Name: "Regulations"}
     }
 ];;
 

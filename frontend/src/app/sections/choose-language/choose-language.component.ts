@@ -1,5 +1,6 @@
 import { Component, ElementRef,AfterViewInit } from '@angular/core';
 import {environment} from '../../../environments/environment'
+import {TranslateMenagerService} from '../../service/translateMenager/translate-menager.service'
 @Component({
   selector: 'app-choose-language',
   templateUrl: './choose-language.component.html',
@@ -8,7 +9,7 @@ import {environment} from '../../../environments/environment'
 export class ChooseLanguageComponent  implements AfterViewInit{
 
   public environment=environment
-  constructor(private elementRef:ElementRef) {}
+  constructor(private elementRef:ElementRef,private translate:TranslateMenagerService ) {}
   public ifChused(index) :boolean
   {
     return (index.name==localStorage.getItem('lang'));
@@ -24,7 +25,7 @@ export class ChooseLanguageComponent  implements AfterViewInit{
   }
   public onClick(item) :void
   {
-    localStorage.setItem('lang',item.data);
+    this.translate.changeLang(item.data)
     window.location.href=''
   }
 }

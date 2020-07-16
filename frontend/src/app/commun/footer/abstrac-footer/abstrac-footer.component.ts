@@ -1,8 +1,9 @@
 import { Component} from '@angular/core';
-import {Router_Custum_Service} from  '../../../service/Router-Custum/router-custum.service'
+import {RouterCustumService} from  '../../../service/Router-Custum/router-custum.service'
 import {TimeService} from '../../../service/time/time.service'
 import {environment} from '../../../../environments/environment'
-import { TranslateService} from '@ngx-translate/core'
+import {TranslateMenagerService} from '../../../service/translateMenager/translate-menager.service'
+
 @Component({
   selector: 'app-abstrac-footer',
   templateUrl: './abstrac-footer.component.html',
@@ -10,7 +11,7 @@ import { TranslateService} from '@ngx-translate/core'
 })
 export class AbstracFooterComponent{
   public environment;
-  constructor(public Router:Router_Custum_Service,private Time:TimeService,private translate:TranslateService) { 
+  constructor(public Router:RouterCustumService,private Time:TimeService,private translate:TranslateMenagerService) { 
     this.environment=environment
     this.setLang()
   }
@@ -18,8 +19,6 @@ export class AbstracFooterComponent{
     return this.Time.getData();
   }
   protected setLang(){
-    this.translate.addLangs(environment.language.langs)
-    this.translate.setDefaultLang(environment.language.defult)
-    this.translate.use(localStorage.getItem('lang'))
+    this.translate.setLang()
   }
 }

@@ -1,4 +1,4 @@
-import { Component,OnInit} from '@angular/core';
+import { Component} from '@angular/core';
 import {AbstractSelctorComponent } from '../../../sections/abstract-selctor/abstract-selctor.component'
 @Component({
   selector: 'app-main-footer-selctor',

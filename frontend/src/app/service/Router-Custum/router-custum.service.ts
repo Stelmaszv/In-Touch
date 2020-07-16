@@ -4,7 +4,7 @@ import { Router} from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
-export class Router_Custum_Service {
+export class RouterCustumService {
 
   private routs=[];
 
@@ -33,7 +33,7 @@ export class Router_Custum_Service {
             url = item.path
           }
       }
-
+      
       if (found){return url='/'+url}
 
       try {
