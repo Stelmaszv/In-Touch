@@ -12,6 +12,7 @@ import { MainNavbarComponent } from './commun/navbar/main-navbar/main-navbar.com
 import { AbstractSelctorComponent } from './sections/abstract-selctor/abstract-selctor.component';
 import { FooterNologinComponent } from './commun/footer/footer-nologin/footer-nologin.component';
 import { FooterMianComponent } from './commun/footer/footer-mian/footer-mian.component';
+import { AbstracFooterComponent } from './commun/footer/abstrac-footer/abstrac-footer.component';
 
 export function HttpLoaderFactory(http: HttpClient){
   return new TranslateHttpLoader(http);
@@ -26,6 +27,7 @@ export function HttpLoaderFactory(http: HttpClient){
     AbstractSelctorComponent,
     FooterNologinComponent,
     FooterMianComponent,
+    AbstracFooterComponent,
   ],
   imports: [
     BrowserModule,

@@ -6,5 +6,4 @@ import {AbstractSelctorComponent } from '../../../sections/abstract-selctor/abst
   templateUrl: './main-navbar-selector.component.html',
   styleUrls: ['./main-navbar-selector.component.scss']
 })
-export class MainNavbarSelectorComponent extends AbstractSelctorComponent{
-}
+export class MainNavbarSelectorComponent extends AbstractSelctorComponent{}

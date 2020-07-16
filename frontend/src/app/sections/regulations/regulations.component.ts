@@ -10,7 +10,7 @@ import { TranslateService} from '@ngx-translate/core'
 export class RegulationsComponent {
   public environment=environment
   private langsClass=[]
-  constructor(private elementRef:ElementRef,private translate:TranslateService) {}
+  constructor(private elementRef:ElementRef) {}
   public ifChused(index) :boolean
   {
     return (index.name==this.environment.language.use);
@@ -24,8 +24,8 @@ export class RegulationsComponent {
     });
   }
   public onClick(item) {
-    this.translate.use(item.data)
-    this.translate.setDefaultLang(item.data)
+    localStorage.setItem('lang',item.data);
+    window.location.href=''
   }
 
 }

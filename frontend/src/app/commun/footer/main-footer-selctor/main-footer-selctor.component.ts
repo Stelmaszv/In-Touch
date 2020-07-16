@@ -5,8 +5,4 @@ import {AbstractSelctorComponent } from '../../../sections/abstract-selctor/abst
   templateUrl: './main-footer-selctor.component.html',
   styleUrls: ['./main-footer-selctor.component.scss']
 })
-export class MainFooterSelctorComponent extends AbstractSelctorComponent implements OnInit{
-  public ngOnInit(){
-    this.setLang()
-  }
-}
+export class MainFooterSelctorComponent extends AbstractSelctorComponent{}
