@@ -1,8 +1,15 @@
-<div *ngFor="let lang of environment.language.langList;" >
-    <span data="{{lang.name}}" class="lang">
-        <b *ngIf="ifChused(lang); else elseBlock">
-            <img src="{{lang.img}}"> {{lang.fullname}}
-        </b>
-        <ng-template #elseBlock><img  src="{{lang.img}}"> {{lang.fullname}}</ng-template>
-    </span>
-</div>
+<section class='section-center'>
+    <div  class="choose-language center-this">
+        <div *ngFor="let lang of environment.language.langList;" class="lang-elemnt">
+            <span data="{{lang.name}}" class="lang">
+                <span *ngIf="ifChused(lang); else elseBlock" class="lang-choosed">
+                    <img src="{{lang.img}}" class="lang-img"> 
+                    <span class="lang-fullname">
+                        {{lang.fullname}}
+                    </span>
+                </span>
+                <ng-template #elseBlock><img  src="{{lang.img}}"> {{lang.fullname}}</ng-template>
+            </span>
+        </div>
+    </div>
+</section>

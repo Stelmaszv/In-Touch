@@ -1,6 +1,7 @@
 $navbar_auth_link_color-base:rgb(243, 236, 236);
 $navbar_auth_background-color-base:rgb(90, 177, 248);
 $navbar_auth_active_link_color-base:rgb(255, 217, 0);
+$body-color:rgb(250, 252, 255);
 .navbar-base{
     border-bottom: 3px solid gold;
     background-color: $navbar_auth_background-color-base;
@@ -29,4 +30,23 @@ $navbar_auth_active_link_color-base:rgb(255, 217, 0);
         justify-content: space-around;
         flex-basis: auto;
     }
+}
+
+.section-center{
+    height: 10em;
+    position: relative;
+    margin-top:50px;
+    margin-bottom:50px;
+    .center-this{
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+body{
+    background-color:$body-color;
 }
