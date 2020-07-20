@@ -14,6 +14,7 @@ import { FooterNologinComponent } from './commun/footer/footer-nologin/footer-no
 import { FooterMianComponent } from './commun/footer/footer-mian/footer-mian.component';
 import { AbstracFooterComponent } from './commun/footer/abstrac-footer/abstrac-footer.component';
 
+
 export function HttpLoaderFactory(http: HttpClient){
   return new TranslateHttpLoader(http);
 }

@@ -6,6 +6,7 @@
     "FOOTER":{
         "chooseLanguage":"choose Language",
         "regulations":"regulations",
-        "createdby":"created by"
+        "createdby":"created by",
+        "about": "about"
     }
 }

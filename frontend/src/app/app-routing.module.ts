@@ -5,6 +5,7 @@ import { RegisterComponent } from './sections/register/register.component';
 import { MainPageComponent } from './sections/main-page/main-page.component';
 import { ChooseLanguageComponent } from './sections/choose-language/choose-language.component';
 import { RegulationsComponent } from './sections/regulations/regulations.component';
+import { AboutComponent } from './sections/about/about.component';
 import {AuthGuard} from 'src/app/gards/auth-gard/auth.guard'
 const routes: Routes = [
     { 
@@ -17,6 +18,11 @@ const routes: Routes = [
       path:'login' , 
       component:LoginComponent,
       data: {Route_Name: "Login"}
+    },
+    { 
+      path:'about' , 
+      component:AboutComponent,
+      data: {Route_Name: "About"}
     },
     { 
       path:'register' , 
