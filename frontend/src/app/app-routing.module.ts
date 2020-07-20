@@ -5,6 +5,7 @@ import { RegisterComponent } from './sections/register/register.component';
 import { MainPageComponent } from './sections/main-page/main-page.component';
 import { ChooseLanguageComponent } from './sections/choose-language/choose-language.component';
 import { RegulationsComponent } from './sections/regulations/regulations.component';
+import { AbstractSelctorComponent } from './sections/abstract-selctor/abstract-selctor.component';
 import { AboutComponent } from './sections/about/about.component';
 import {AuthGuard} from 'src/app/gards/auth-gard/auth.guard'
 const routes: Routes = [
@@ -50,7 +51,8 @@ export const routingComponents=[
   LoginComponent,
   RegisterComponent,
   ChooseLanguageComponent,
-  RegulationsComponent
+  RegulationsComponent,
+  AbstractSelctorComponent
 ]
 export const Ruter_Data = [
   routes
