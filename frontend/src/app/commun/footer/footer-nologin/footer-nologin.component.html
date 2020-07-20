@@ -1,7 +1,24 @@
-<a routerLink="{{Router.Get_Rout('ChooseLanguage')}}">{{ 'FOOTER.chooseLanguage' | translate  }}</a>
-<br>
-<a routerLink="{{Router.Get_Rout('Regulations')}}">{{ 'FOOTER.regulations' | translate  }}</a>
-<br>
-{{ 'FOOTER.createdby' | translate  }} <a href="{{environment.url.portfolio.href}}"> {{environment.url.portfolio.text}} </a>
-<br>
-{{environment.name}} {{getTime()}}
+<footer class="auth-footer">
+    <div class="navbar navbar-expand-lg  navbar-base navbar-center footer-top text-right">
+        <div class="container">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav center">
+                    <li class="nav-item" routerLinkActive="active">
+                        <a class="nav-link" routerLink="{{Router.Get_Rout('ChooseLanguage')}}">{{ 'FOOTER.chooseLanguage' | translate  }}</a>
+                    </li>
+                    <li class="nav-item" routerLinkActive="active">
+                        <a class="nav-link" routerLink="{{Router.Get_Rout('Regulations')}}">{{ 'FOOTER.regulations' | translate  }}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{environment.url.portfolio.href}}">
+                            {{ 'FOOTER.createdby' | translate  }}  
+                            <span>
+                                {{environment.url.portfolio.text}}
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>

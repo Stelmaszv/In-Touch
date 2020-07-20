@@ -1,8 +1,8 @@
-<nav class="navbar navbar-expand-lg  navbar-auth text-right">
+<nav class="navbar navbar-expand-lg  navbar-base navbar-auth text-right">
   <div class="container">
     <a class="navbar-brand" routerLink="{{router.Get_Rout('Main Page')}}"><img src="{{envarioment.photo.navLogo}}"></a>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
+        <ul class="navbar-nav">
             <li class="nav-item" routerLinkActive="active">
                 <a class="nav-link" routerLink="{{router.Get_Rout('Login')}}">{{ 'AUTHLOGIN.LOGIN' | translate  }}</a>
             </li>
