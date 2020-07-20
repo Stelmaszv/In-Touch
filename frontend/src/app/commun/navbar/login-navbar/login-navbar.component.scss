@@ -1,0 +1,30 @@
+$navbar_auth_link_color:rgb(243, 236, 236);
+$navbar_auth_background-color:rgb(90, 177, 248);
+$navbar_auth_active_link_color:rgb(255, 217, 0);
+.navbar-auth{
+    border-bottom: 3px solid gold;
+    background-color: $navbar_auth_background-color;
+    .navbar-nav {
+        float:none;
+        margin-left:70%;
+        display: block;
+        li {
+            display: inline-block;
+            float:none;
+            a::first-letter{
+                text-transform: uppercase;
+            }
+            &.nav-item{
+                a{
+                    color: $navbar_auth_link_color;
+                }
+            }
+            &.active{
+                a{
+                    color: $navbar_auth_active_link_color;
+                }
+            }
+
+        }
+    }
+}

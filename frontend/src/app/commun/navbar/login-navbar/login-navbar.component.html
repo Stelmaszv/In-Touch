@@ -1,6 +1,15 @@
-<img src="{{envarioment.photo.navLogo}}">
-<br>
-<a routerLink="{{router.Get_Rout('Login')}}">{{ 'AUTHLOGIN.LOGIN' | translate  }}</a>
-<br>
-<a routerLink="{{router.Get_Rout('Register')}}">{{ 'AUTHLOGIN.REGESTRER' | translate  }}</a>
-
+<nav class="navbar navbar-expand-lg  navbar-auth text-right">
+  <div class="container">
+    <a class="navbar-brand" routerLink="{{router.Get_Rout('Main Page')}}"><img src="{{envarioment.photo.navLogo}}"></a>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link" routerLink="{{router.Get_Rout('Login')}}">{{ 'AUTHLOGIN.LOGIN' | translate  }}</a>
+            </li>
+            <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link" routerLink="{{router.Get_Rout('Register')}}">{{ 'AUTHLOGIN.REGESTRER' | translate  }}</a>
+            </li>
+        </ul>
+    </div>
+  </div>
+</nav>

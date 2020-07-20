@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "login-navbar.component.scss"
+    ],
+    "names": [],
+    "file": "login-navbar.component.css"
+}
