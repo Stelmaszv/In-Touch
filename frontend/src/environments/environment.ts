@@ -3,7 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 class languages{
   private assetsUrl ='assets/flags/';
-  public langList = [{'img':'assets/flags/en.gif','name':'en','fullname':'english'},{'img':'assets/flags/pl.png','name':'pl','fullname':'polski'}]
+  public langList = [{'img':'assets/flags/en.gif','name':'en','fullname':'English'},{'img':'assets/flags/pl.png','name':'pl','fullname':'Polski'}]
   public defult   = 'en'
   public use      = 'en'
   public langs    = []

@@ -1,22 +1,33 @@
-section{
+$lang-active-color:rgb(255, 255, 255);
+$lang-color:rgba(245, 245, 245, 0.335);
+$lang-img-margin:20px;
+$lang-img-with:100px;
+$lang-img-height:100px;
+$NT:100px;
+$NB:100px;
+
+.section-center{
+    margin-top:$NT;
+    margin-bottom:$NB;
     .choose-language{
         .lang-elemnt{
             .lang{
+                color: $lang-color;
                 .lang-choosed{
                     .lang-img{
-                        margin:20px;
-                        width: 100px;
-                        height: 100px;
+                        margin:$lang-img-margin;
+                        width: $lang-img-with;
+                        height: $lang-img-height;
                     }
                     .lang-fullname{
-                        font-weight: bolder;
+                        color: $lang-active-color;
                     }
                 }
             }
             img{
-                margin:20px;
-                width: 100px;
-                height: 100px;
+                margin:$lang-img-margin;
+                width: $lang-img-with;
+                height: $lang-img-height;
             }
         }
     }

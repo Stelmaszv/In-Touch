@@ -1,5 +1,6 @@
 <section class='section-center'>
-    <div  class="choose-language center-this">
+    <div  class="center-this choose-language auth-section">
+        <div class="section-name">{{ 'CHOOSELANGUAGE.title' | translate }}</div>
         <div *ngFor="let lang of environment.language.langList;" class="lang-elemnt">
             <span data="{{lang.name}}" class="lang">
                 <span *ngIf="ifChused(lang); else elseBlock" class="lang-choosed">
@@ -8,7 +9,7 @@
                         {{lang.fullname}}
                     </span>
                 </span>
-                <ng-template #elseBlock><img  src="{{lang.img}}"> {{lang.fullname}}</ng-template>
+                <ng-template class="normal" #elseBlock><img  src="{{lang.img}}"> {{lang.fullname}}</ng-template>
             </span>
         </div>
     </div>

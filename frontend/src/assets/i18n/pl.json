@@ -8,5 +8,20 @@
         "regulations":"regulamin",
         "createdby":"stworzony przez",
         "about": "o portalu"
+    },
+    "REGULATIONS":{
+        "title":"Regulamin"
+    },
+    "ABOUT":{
+        "title":"O portalu"
+    },
+    "LOGIN":{
+        "title":"Logowanie"
+    },
+    "REGESTRER":{
+        "title":"Rejestracja"
+    },
+    "CHOOSELANGUAGE":{
+        "title":"Wybierz język"
     }
 }

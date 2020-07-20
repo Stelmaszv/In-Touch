@@ -2,6 +2,8 @@ $navbar_auth_link_color-base:rgb(243, 236, 236);
 $navbar_auth_background-color-base:rgb(90, 177, 248);
 $navbar_auth_active_link_color-base:rgb(255, 217, 0);
 $body-color:rgb(250, 252, 255);
+$auth-section-color: rgb(103, 184, 250);
+
 .navbar-base{
     border-bottom: 3px solid gold;
     background-color: $navbar_auth_background-color-base;
@@ -24,6 +26,7 @@ $body-color:rgb(250, 252, 255);
         }
     }
 }
+
 .navbar-expand-lg{
     .navbar-collapse{
         display: flex!important;
@@ -31,7 +34,11 @@ $body-color:rgb(250, 252, 255);
         flex-basis: auto;
     }
 }
-
+.section-name{
+    margin-top: 20px;
+    font-size: 30px;
+    font-weight: bolder;
+}
 .section-center{
     height: 10em;
     position: relative;
@@ -45,6 +52,16 @@ $body-color:rgb(250, 252, 255);
         margin-right: -50%;
         transform: translate(-50%, -50%);
     }
+}
+
+.auth-section{
+    background-color: $auth-section-color;
+    width: 600px;
+    text-align: center;
+    padding: 10px; 
+    border-radius: 10px;
+    border: 1px solid gold;
+    color: white;
 }
 
 body{

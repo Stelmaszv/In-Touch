@@ -50,9 +50,10 @@ export class AppRoutingModule { }
 export const routingComponents=[
   LoginComponent,
   RegisterComponent,
+  AboutComponent,
   ChooseLanguageComponent,
   RegulationsComponent,
-  AbstractSelctorComponent
+  AbstractSelctorComponent,
 ]
 export const Ruter_Data = [
   routes

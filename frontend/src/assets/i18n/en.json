@@ -8,5 +8,20 @@
         "regulations":"regulations",
         "createdby":"created by",
         "about": "about"
+    },
+    "REGULATIONS":{
+        "title":"Regulations"
+    },
+    "ABOUT":{
+        "title":"About"
+    },
+    "LOGIN":{
+        "title":"Login"
+    },
+    "REGESTRER":{
+        "title":"Register"
+    },
+    "CHOOSELANGUAGE":{
+        "title":"Choose Language"
     }
 }
