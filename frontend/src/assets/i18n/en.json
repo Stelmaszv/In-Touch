@@ -32,12 +32,26 @@
         "passwordField":"Password",
         "passwordhelp":"We'll never share your email with anyone else.",
         "passwordRepeat":"Password repeat",
-        "sexField":"sex",
+        "birthday":"Birthday",
+        "sexField":"Sex",
         "sexFirst":"Man",
         "sexSecund":"Female",
         "regulations":"I acept regulations",
         "registerButton":"Register",
         "iarledyhaveAccountButton":"I arledy have acout"
+    },
+    "REGESTRERVALID":{
+        "emptyEmail":"empty Email",
+        "invalidEmail":"invalid emial 'np.samething@home.com'",
+        "notaverible":"Email samething@home.com is not averable",
+        "emptyBirthday":"empty Birthday",
+        "inValidbirthday":"inValid Birthday",
+        "emptyPassword":"empty Password",
+        "passtoWeek":"password is to week",
+        "passNotthesame":"passwords are not the same",
+        "emptyPassrepat":"empty repeat  Password",
+        "emptySex":"empty sex",
+        "regulationsNotacept":"Please acept regulations"
     },
     "CHOOSELANGUAGE":{
         "title":"Choose Language"
