@@ -26,7 +26,13 @@ $auth-section-color: rgb(103, 184, 250);
         }
     }
 }
-
+.form-elment{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    .form-check-input{
+        margin: 10px;
+    }
+}
 .navbar-expand-lg{
     .navbar-collapse{
         display: flex!important;
