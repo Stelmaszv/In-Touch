@@ -28,7 +28,7 @@
                     <li>{{ 'REGESTRERVALID.emptyBirthday' | translate }}</li>
                     <li>{{ 'REGESTRERVALID.inValidbirthday' | translate }}</li>
                 </div>
-                <input type="date" class="form-control password" id="Password">
+                <input type="date" class="form-control birthday" id="Password">
             </div>
             <div class="form-elment Password-form">
                 <label for="Password">{{ 'REGESTRER.passwordField' | translate }}</label>
@@ -40,7 +40,7 @@
                 <div class="progress">
                     <div class="progress-bar bg-danger" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
-                <input type="password" class="form-control password" id="Password">
+                <input type="password" class="form-control" id="Password">
                 <small id="passwordHelp" class="form-text text-muted">{{ 'REGESTRER.passwordhelp' | translate }}</small>
             </div>
             <div class="form-elment Password-repeat-form">
@@ -56,7 +56,7 @@
                 <div class="validError">
                     <li>{{ 'REGESTRERVALID.emptySex' | translate }}</li>
                 </div>
-                <select class="form-control">
+                <select class="form-control sex">
                     <option>{{ 'REGESTRER.sexFirst' | translate }}</option>
                     <option>{{ 'REGESTRER.sexSecund' | translate }}</option>
                 </select>
@@ -64,7 +64,7 @@
             <div class="form-elment regulations-form">
                 <div class="row">
                     <div class="col-1">
-                        <input type="checkbox" class="form-check-input error" id="exampleCheck1">
+                        <input type="checkbox" class="form-check-input is-invalid" id="exampleCheck1">
                     </div>
                     <div class="col-11">
                         <label class="form-check-label" for="exampleCheck1">{{ 'REGESTRER.regulations' | translate }}</label>

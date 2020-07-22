@@ -7,16 +7,16 @@
             &.email-form{
                 .input-group-text{
                     border-radius: 10px 0px 0px 10px; 
+                    &.error{
+                        border-radius: 0px 0px 0px 10px; 
+                    }
                 }
                 .email{
                     margin-left: -2px;
                     border-radius: 0px 10px 10px 0px;
-                }
-                &.error{
-                    border-color: red;
-                    border-radius: 0px 0px 0px 0px; 
-                    background-color: rgb(230, 78, 78);
-                    color: white;
+                    &.error{
+                        border-radius: 0px 0px 10px 0px; 
+                    }
                 }
             }
             &.Password-form{
@@ -40,10 +40,7 @@
                 margin-top:0.5px;
                 border-radius: 10px;
                 &.error{
-                    border-color: red;
                     border-radius: 0px 0px 10px 10px; 
-                    background-color: rgb(230, 78, 78);
-                    color: white;
                 }
             }
             .validError{
