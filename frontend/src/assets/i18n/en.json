@@ -55,5 +55,10 @@
     },
     "CHOOSELANGUAGE":{
         "title":"Choose Language"
+    },
+    "LOGINVALID":{
+        "invalidData":"Invalid email or password",
+        "isNotActive":"Accont has bean baned"
     }
+
 }

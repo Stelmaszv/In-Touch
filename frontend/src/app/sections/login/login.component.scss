@@ -1,4 +1,16 @@
 .section-center{
     margin-top: 318px;
     margin-bottom: 318px;
+    .login-section{
+        margin: 50px;
+        .validError{
+            background-color: red;
+            color: white;
+            text-align: left;
+            border-radius: 10px;
+            li{
+                padding: 10px;
+            }
+        }
+    }
 }

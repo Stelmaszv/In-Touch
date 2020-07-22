@@ -55,5 +55,9 @@
     },
     "CHOOSELANGUAGE":{
         "title":"Wybierz język"
+    },
+    "LOGINVALID":{
+        "invalidData":"Nie poprawny email albo haslo",
+        "isNotActive":"Konto zostało zbanowane"
     }
 }

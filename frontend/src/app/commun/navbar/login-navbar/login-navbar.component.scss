@@ -1,0 +1,14 @@
+.navbar-login{
+    .navbar-nav {
+        li{
+            a{
+                font-size: larger;
+            }
+            &.active{
+                a{
+                    font-size: large;
+                }
+            }
+        }       
+    }
+}
