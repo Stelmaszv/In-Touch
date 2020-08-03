@@ -5,10 +5,11 @@
 
             <div class="form-elment email-form">
                 <label for="email">{{ 'REGESTRER.emailaddressField' | translate }}</label>
-                <div class="validError">
-                    <li>{{ 'REGESTRERVALID.emptyEmail' | translate }}</li>
-                    <li>{{ 'REGESTRERVALID.invalidEmail' | translate }}</li>
-                    <li>{{ 'REGESTRERVALID.notaverible' | translate }}</li>
+                <div class="validError bg-danger text-white">
+                    <li >{{ 'REGESTRERVALID.emptyEmail' | translate }}</li>
+                    <li *ngIf="emailSection.isInvalid">{{ 'REGESTRERVALID.invalidEmail' | translate }}</li>
+                    <li *ngIf="emailSection.isNotavailable">{{ 'REGESTRERVALID.notaverible' | translate }}</li>
+                    <li *ngIf="emailSection.isBanned">{{ 'REGESTRERVALID.banedword' | translate }}</li>
                 </div>
                 <div class="row">
                     <div class="col-1">
@@ -17,14 +18,19 @@
                         </div>
                     </div>
                     <div class="col-11">
-                        <input class="form-control email" for="email" type="text" placeholder="cos@domek.pl">
+                        <input 
+                            class="form-control email" 
+                            for="email" 
+                            type="text" 
+                            placeholder="cos@domek.pl"
+                        >
                         <small id="emailHelp" class="form-text text-muted">{{ 'REGESTRER.emailHelp' | translate }}</small>
                     </div>
                 </div>
             </div>
             <div class="form-elment data-form">
                 <label for="birthday">{{ 'REGESTRER.birthday' | translate }}</label>
-                <div class="validError">
+                <div class="validError bg-danger text-white">
                     <li>{{ 'REGESTRERVALID.emptyBirthday' | translate }}</li>
                     <li>{{ 'REGESTRERVALID.inValidbirthday' | translate }}</li>
                 </div>
@@ -32,7 +38,7 @@
             </div>
             <div class="form-elment Password-form">
                 <label for="Password">{{ 'REGESTRER.passwordField' | translate }}</label>
-                <div class="validError">
+                <div class="validError bg-danger text-white">
                     <li>{{ 'REGESTRERVALID.emptyPassword' | translate }}</li>
                     <li>{{ 'REGESTRERVALID.passtoWeek' | translate }}</li>
                     <li>{{ 'REGESTRERVALID.passNotthesame' | translate }}</li>
@@ -45,7 +51,7 @@
             </div>
             <div class="form-elment Password-repeat-form">
                 <label for="exampleInputPassword1">{{ 'REGESTRER.passwordRepeat' | translate }}</label>
-                <div class="validError">
+                <div class="validError bg-danger text-white">
                     <li>{{ 'REGESTRERVALID.emptyPassword' | translate }}</li>
                     <li>{{ 'REGESTRERVALID.passNotthesame' | translate }}</li>
                 </div>
@@ -53,7 +59,7 @@
             </div>
             <div class="form-elment sex-form">
                 <label for="exampleInputEmail1">{{ 'REGESTRER.sexField' | translate }}</label>
-                <div class="validError">
+                <div class="validError bg-danger text-white">
                     <li>{{ 'REGESTRERVALID.emptySex' | translate }}</li>
                 </div>
                 <select class="form-control sex">

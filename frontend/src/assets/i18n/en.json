@@ -51,7 +51,8 @@
         "passNotthesame":"passwords are not the same",
         "emptyPassrepat":"empty repeat  Password",
         "emptySex":"empty sex",
-        "regulationsNotacept":"Please acept regulations"
+        "regulationsNotacept":"Please acept regulations",
+        "banedword":"This email is not allowed"
     },
     "CHOOSELANGUAGE":{
         "title":"Choose Language"
