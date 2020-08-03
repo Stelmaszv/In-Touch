@@ -14,14 +14,24 @@ export class RegisterComponent implements OnInit,AfterViewInit{
   public ngOnInit() :void
   {
     this.emailSection=this.RegisterService.getEmialErrorSection()
-    console.log(this.RegisterService.ifDataPassed(313))
   }
   public ngAfterViewInit() :void 
   {
-    this.evants()
+    this.emailEvants()
+    this.birthdayEvants()
   }
-  private evants() :void 
-  {
+  private birthdayEvants(){
+    let obj=this
+    let eR = this.elementRef.nativeElement.querySelector('.birthday')
+    eR.addEventListener('focusout', function() {
+      eR.classList.add("is-invalid")
+      if(obj.RegisterService.ifDataPassedRegister(this.value)){
+        eR.classList.remove("is-invalid")
+        eR.classList.add("is-valid")
+      }
+    });
+  }
+  private emailEvants(){
     let obj=this
     let eR = this.elementRef.nativeElement.querySelector('.email')
     eR.addEventListener('keyup', function() {

@@ -8,10 +8,14 @@ import { EmailValidService } from '../validator/email-valid.service'
 export class RegisterService {
   constructor(private Time:TimeService,private EmailValid:EmailValidService ) { }
 
-  public ifDataPassed(data){
+  public ifDataPassedRegister(data) : boolean{
     return this.Time.ifDataPassed(data);
   }
   
+  public checkAge(){
+    
+  }
+
   public emailValid(email){
     return this.EmailValid.validate(email)
   }
