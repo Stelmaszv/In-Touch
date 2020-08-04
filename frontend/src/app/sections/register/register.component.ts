@@ -1,5 +1,6 @@
 import {Component,OnInit, ElementRef,AfterViewInit} from '@angular/core';
 import {RegisterService} from 'src/app/service/register/register.service'
+import {PasswordValidService} from 'src/app/service/password/password-valid.service'
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -9,7 +10,8 @@ export class RegisterComponent implements OnInit,AfterViewInit{
   public emailSection;
   public constructor(
     private RegisterService:RegisterService,
-    private elementRef:ElementRef
+    private elementRef:ElementRef,
+    private PasswordValid:PasswordValidService
   ){}
   public ngOnInit() :void
   {
@@ -28,15 +30,15 @@ export class RegisterComponent implements OnInit,AfterViewInit{
     let eR = this.elementRef.nativeElement.querySelector('.password')
     eR.addEventListener('keyup', function() {
       moveIn(eR)
-      posswordStrenght()
+      posswordStrenght(this.value)
     });
     eR.addEventListener('focusout', function() {
       moveOut(eR)
     });
-    function posswordStrenght(){
+    function posswordStrenght(value:string){
       let progresBarStatus= elmentRef.nativeElement.querySelector('.progress-bar')
-      progresBarStatus.style.width='85%'
-      setPasswordStyle(progresBarStatus,85);
+      progresBarStatus.style.width=obj.PasswordValid.validate(value)+"%"
+      setPasswordStyle(progresBarStatus,obj.PasswordValid.validate(value));
     }
     function setPasswordStyle(progresBarStatus,procent:number){
         let className='bg-danger'
