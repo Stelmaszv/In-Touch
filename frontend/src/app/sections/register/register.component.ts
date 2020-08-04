@@ -30,7 +30,20 @@ export class RegisterComponent implements OnInit,AfterViewInit{
 
   private repeatPassword() :void
   {
-
+    let obj=this
+    let elementRef = this.elementRef
+    let elementRefRepeatPassword = this.elementRef.nativeElement.querySelector('.Password-repeat')
+    elementRefRepeatPassword.addEventListener('focusout', function() {
+      matchPasswords(this.value)
+    });
+    function matchPasswords(value){
+        let password = elementRef.nativeElement.querySelector('.password')
+        if(value!=password.value){
+          elementRefRepeatPassword.classList.add('is-invalid')
+          obj.showErrorsList(elementRefRepeatPassword,elementRef,'.PasswordRepeatValid')
+          password.classList.add('is-invalid')
+        }
+    }
   }
 
   private passwordValid() :void
@@ -79,8 +92,10 @@ export class RegisterComponent implements OnInit,AfterViewInit{
       eR.style.borderRadius='0px 0px 10px 10px'
     }
     function moveOut(eR){
-      progresSwich('hidden')
-      eR.style.borderRadius='10px'
+      if (!elementRefPassword.classList.contains('is-invalid')){
+        progresSwich('hidden')
+        eR.style.borderRadius='10px'
+      }
     }
     function progresSwich(swich:string){
       let progressBar = elementRef.nativeElement.querySelector('.progress')
