@@ -26,17 +26,17 @@ export class RegisterComponent implements OnInit,AfterViewInit{
   private passwordValid() :void
   {
     let obj=this
-    let elmentRef = this.elementRef
-    let eR = this.elementRef.nativeElement.querySelector('.password')
-    eR.addEventListener('keyup', function() {
-      moveIn(eR)
+    let elementRef = this.elementRef
+    let elementRefPassword = this.elementRef.nativeElement.querySelector('.password')
+    elementRefPassword.addEventListener('keyup', function() {
+      moveIn(elementRefPassword)
       posswordStrenght(this.value)
     });
-    eR.addEventListener('focusout', function() {
-      moveOut(eR)
+    elementRefPassword.addEventListener('focusout', function() {
+      moveOut(elementRefPassword)
     });
     function posswordStrenght(value:string){
-      let progresBarStatus= elmentRef.nativeElement.querySelector('.progress-bar')
+      let progresBarStatus= elementRef.nativeElement.querySelector('.progress-bar')
       progresBarStatus.style.width=obj.PasswordValid.validate(value)+"%"
       setPasswordStyle(progresBarStatus,obj.PasswordValid.validate(value));
     }
@@ -54,7 +54,7 @@ export class RegisterComponent implements OnInit,AfterViewInit{
         progresBarStatus.classList.remove('bg-danger')
         progresBarStatus.classList.remove('bg-warning')
         progresBarStatus.classList.remove('bg-success')
-        
+
         progresBarStatus.classList.add(className)
     }
     function moveIn(eR){
@@ -66,7 +66,7 @@ export class RegisterComponent implements OnInit,AfterViewInit{
       eR.style.borderRadius='10px'
     }
     function progresSwich(swich:string){
-      let progressBar = elmentRef.nativeElement.querySelector('.progress')
+      let progressBar = elementRef.nativeElement.querySelector('.progress')
       progressBar.style.visibility= swich
     }
   }
@@ -85,12 +85,29 @@ export class RegisterComponent implements OnInit,AfterViewInit{
   private emailEvants() :void 
   {
     let obj=this
-    let eR = this.elementRef.nativeElement.querySelector('.email')
-    eR.addEventListener('keyup', function() {
+    let eR=this.elementRef
+    let elementRefEmail= this.elementRef.nativeElement.querySelector('.email')
+    elementRefEmail.addEventListener('keyup', function() {
       this.emailSection=obj.RegisterService.emailValid(this.value)
-      obj.addClassEmailValid(eR,this.emailSection)
+      obj.addClassEmailValid(elementRefEmail,this.emailSection)
+      obj.showErrorsList(elementRefEmail,eR,'emailValidErrors')
     });
   }
+  private showErrorsList(elementRefEmail,eR,classValid:string) : void
+  {
+    let el=eR.nativeElement.querySelector('.'+classValid)
+    let logError=eR.nativeElement.querySelector('.input-group-text')
+    if(elementRefEmail.classList.contains('is-invalid')){
+      logError.classList.add("invalidErrorsListLogo")
+      elementRefEmail.classList.add("invalidErrorsList")
+      el.style.display='block'
+    }else{
+      logError.classList.remove("invalidErrorsListLogo")
+      elementRefEmail.classList.remove("invalidErrorsList")
+      el.style.display='none'
+    }
+  }
+
   private addClassEmailValid(el,Section) : void
   {
     el.classList.add("is-invalid")

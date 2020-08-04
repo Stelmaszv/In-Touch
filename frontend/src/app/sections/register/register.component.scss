@@ -3,16 +3,16 @@
         margin: 50px;
         .form-elment{
             &.email-form{
-                .input-group-text{
-                    border-radius: 10px 0px 0px 10px; 
-                    &.error{
-                        border-radius: 0px 0px 0px 10px; 
-                    }
+                .invalidErrorsListLogo{
+                    border-radius: 0px 0px 10px 10px;
                 }
                 .email{
                     margin-left: -2px;
                     border-radius: 0px 10px 10px 0px;
                     &.error{
+                        border-radius: 0px 0px 10px 0px; 
+                    }
+                    &.invalidErrorsList{
                         border-radius: 0px 0px 10px 0px; 
                     }
                 }
