@@ -19,8 +19,7 @@
             }
             &.Password-form{
                 .progress{
-                    display: none;
-                    border-radius: 0px; 
+                    visibility: hidden;
                 }
                 .password{
                     margin-left: 0px;

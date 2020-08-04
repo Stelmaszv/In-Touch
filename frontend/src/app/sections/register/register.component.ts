@@ -17,10 +17,52 @@ export class RegisterComponent implements OnInit,AfterViewInit{
   }
   public ngAfterViewInit() :void 
   {
-    this.emailEvants()
-    this.birthdayEvants()
+    this.passwordValid();
+    this.emailEvants();
+    this.birthdayEvants();
   }
-  private birthdayEvants(){
+  private passwordValid() :void
+  {
+    let obj=this
+    let elmentRef = this.elementRef
+    let eR = this.elementRef.nativeElement.querySelector('.password')
+    eR.addEventListener('keyup', function() {
+      moveIn(eR)
+      posswordStrenght()
+    });
+    eR.addEventListener('focusout', function() {
+      moveOut(eR)
+    });
+    function posswordStrenght(){
+      let progresBarStatus= elmentRef.nativeElement.querySelector('.progress-bar')
+      progresBarStatus.style.width='85%'
+      setPasswordStyle(progresBarStatus,85);
+    }
+    function setPasswordStyle(progresBarStatus,procent:number){
+        let className='bg-danger'
+        if(procent>=50){
+          className='bg-warning'
+        }
+        if(procent>=75){
+          className='bg-success'
+        }
+        progresBarStatus.classList.add(className)
+    }
+    function moveIn(eR){
+      progresSwich('visible')
+      eR.style.borderRadius='0px 0px 10px 10px'
+    }
+    function moveOut(eR){
+      progresSwich('hidden')
+      eR.style.borderRadius='10px'
+    }
+    function progresSwich(swich:string){
+      let progressBar = elmentRef.nativeElement.querySelector('.progress')
+      progressBar.style.visibility= swich
+    }
+  }
+  private birthdayEvants() :void 
+  {
     let obj=this
     let eR = this.elementRef.nativeElement.querySelector('.birthday')
     eR.addEventListener('focusout', function() {
@@ -31,7 +73,8 @@ export class RegisterComponent implements OnInit,AfterViewInit{
       }
     });
   }
-  private emailEvants(){
+  private emailEvants() :void 
+  {
     let obj=this
     let eR = this.elementRef.nativeElement.querySelector('.email')
     eR.addEventListener('keyup', function() {
