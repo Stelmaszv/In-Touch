@@ -42,12 +42,19 @@ export class RegisterComponent implements OnInit,AfterViewInit{
     }
     function setPasswordStyle(progresBarStatus,procent:number){
         let className='bg-danger'
-        if(procent>=50){
+
+        if(procent>50){
           className='bg-warning'
         }
-        if(procent>=75){
+
+        if(procent>75){
           className='bg-success'
         }
+        
+        progresBarStatus.classList.remove('bg-danger')
+        progresBarStatus.classList.remove('bg-warning')
+        progresBarStatus.classList.remove('bg-success')
+        
         progresBarStatus.classList.add(className)
     }
     function moveIn(eR){
