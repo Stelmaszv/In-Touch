@@ -20,6 +20,10 @@
             &.Password-form{
                 .progress{
                     visibility: hidden;
+                    border-radius: 0px;
+                    .progress-bar{
+                        border-radius: 0px;
+                    } 
                 }
                 .password{
                     margin-left: 0px;
@@ -37,6 +41,9 @@
                 margin-top:0.5px;
                 border-radius: 10px;
                 &.error{
+                    border-radius: 0px 0px 10px 10px; 
+                }
+                &.invalidErrorsList{
                     border-radius: 0px 0px 10px 10px; 
                 }
             }

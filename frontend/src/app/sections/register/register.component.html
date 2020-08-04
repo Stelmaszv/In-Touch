@@ -30,15 +30,15 @@
             </div>
             <div class="form-elment data-form">
                 <label for="birthday">{{ 'REGESTRER.birthday' | translate }}</label>
-                <div class="validError bg-danger text-white">
+                <div class="validError bg-danger text-white birthdayValidErrors">
                     <li>{{ 'REGESTRERVALID.emptyBirthday' | translate }}</li>
                     <li>{{ 'REGESTRERVALID.inValidbirthday' | translate }}</li>
                 </div>
                 <input type="date" class="form-control birthday" id="Password">
             </div>
-            <div class="form-elment Password-form passwordValidErrors">
+            <div class="form-elment Password-form ">
                 <label for="Password">{{ 'REGESTRER.passwordField' | translate }}</label>
-                <div class="validError bg-danger text-white">
+                <div class="validError bg-danger text-white passwordValidErrors">
                     <li>{{ 'REGESTRERVALID.emptyPassword' | translate }}</li>
                     <li>{{ 'REGESTRERVALID.passtoWeek' | translate }}</li>
                     <li>{{ 'REGESTRERVALID.passNotthesame' | translate }}</li>

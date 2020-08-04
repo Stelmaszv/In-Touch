@@ -8,21 +8,31 @@ import {PasswordValidService} from 'src/app/service/password/password-valid.serv
 })
 export class RegisterComponent implements OnInit,AfterViewInit{
   public emailSection;
+
   public constructor(
     private RegisterService:RegisterService,
     private elementRef:ElementRef,
     private PasswordValid:PasswordValidService
   ){}
+
   public ngOnInit() :void
   {
     this.emailSection=this.RegisterService.getEmialErrorSection()
   }
+
   public ngAfterViewInit() :void 
   {
     this.passwordValid();
     this.emailEvants();
     this.birthdayEvants();
+    this.repeatPassword();
   }
+
+  private repeatPassword() :void
+  {
+
+  }
+
   private passwordValid() :void
   {
     let obj=this
@@ -31,6 +41,7 @@ export class RegisterComponent implements OnInit,AfterViewInit{
     elementRefPassword.addEventListener('keyup', function() {
       moveIn(elementRefPassword)
       posswordStrenght(this.value)
+      obj.showErrorsList(elementRefPassword,elementRef,'.passwordValidErrors')
     });
     elementRefPassword.addEventListener('focusout', function() {
       moveOut(elementRefPassword)
@@ -42,12 +53,18 @@ export class RegisterComponent implements OnInit,AfterViewInit{
     }
     function setPasswordStyle(progresBarStatus,procent:number){
         let className='bg-danger'
+        elementRefPassword.classList.remove("is-valid")
+        elementRefPassword.classList.remove("is-invalid")
+        elementRefPassword.classList.add("is-invalid")
 
         if(procent>50){
+          elementRefPassword.classList.remove("is-invalid")
           className='bg-warning'
         }
 
         if(procent>75){
+          elementRefPassword.classList.remove("is-invalid")
+          elementRefPassword.classList.add("is-valid")
           className='bg-success'
         }
         
@@ -70,40 +87,45 @@ export class RegisterComponent implements OnInit,AfterViewInit{
       progressBar.style.visibility= swich
     }
   }
+
   private birthdayEvants() :void 
   {
     let obj=this
-    let eR = this.elementRef.nativeElement.querySelector('.birthday')
-    eR.addEventListener('focusout', function() {
-      eR.classList.add("is-invalid")
+    let elementRef=this.elementRef
+    let elementRefBirthday = this.elementRef.nativeElement.querySelector('.birthday')
+    elementRefBirthday.addEventListener('focusout', function() {
+      elementRefBirthday.classList.add("is-invalid")
       if(obj.RegisterService.ifDataPassedRegister(this.value)){
-        eR.classList.remove("is-invalid")
-        eR.classList.add("is-valid")
+        elementRefBirthday.classList.remove("is-invalid")
+        elementRefBirthday.classList.add("is-valid")
       }
+      obj.showErrorsList(elementRefBirthday,elementRef,'.birthdayValidErrors')
     });
   }
+
   private emailEvants() :void 
   {
     let obj=this
-    let eR=this.elementRef
+    let elementRef=this.elementRef
     let elementRefEmail= this.elementRef.nativeElement.querySelector('.email')
     elementRefEmail.addEventListener('keyup', function() {
       this.emailSection=obj.RegisterService.emailValid(this.value)
       obj.addClassEmailValid(elementRefEmail,this.emailSection)
-      obj.showErrorsList(elementRefEmail,eR,'emailValidErrors')
+      obj.showErrorsList(elementRefEmail,elementRef,'.emailValidErrors')
     });
   }
-  private showErrorsList(elementRefEmail,eR,classValid:string) : void
+  
+  private showErrorsList(elementRefID,elementRef,classValid:string) : void
   {
-    let el=eR.nativeElement.querySelector('.'+classValid)
-    let logError=eR.nativeElement.querySelector('.input-group-text')
-    if(elementRefEmail.classList.contains('is-invalid')){
+    let el=elementRef.nativeElement.querySelector(classValid)
+    let logError=elementRef.nativeElement.querySelector('.input-group-text')
+    if(elementRefID.classList.contains('is-invalid')){
       logError.classList.add("invalidErrorsListLogo")
-      elementRefEmail.classList.add("invalidErrorsList")
+      elementRefID.classList.add("invalidErrorsList")
       el.style.display='block'
     }else{
       logError.classList.remove("invalidErrorsListLogo")
-      elementRefEmail.classList.remove("invalidErrorsList")
+      elementRefID.classList.remove("invalidErrorsList")
       el.style.display='none'
     }
   }
