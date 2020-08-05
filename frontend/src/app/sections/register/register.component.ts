@@ -1,6 +1,8 @@
 import {Component,OnInit, ElementRef,AfterViewInit} from '@angular/core';
 import {RegisterService} from 'src/app/service/register/register.service'
 import {PasswordValidService} from 'src/app/service/password/password-valid.service'
+import {FormControl, FormGroup} from '@angular/forms';
+import { Validators } from '@angular/forms';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -8,15 +10,34 @@ import {PasswordValidService} from 'src/app/service/password/password-valid.serv
 })
 export class RegisterComponent implements OnInit,AfterViewInit{
   public emailSection;
-
   public constructor(
     private RegisterService:RegisterService,
     private elementRef:ElementRef,
     private PasswordValid:PasswordValidService
   ){}
+  public register = new FormGroup({
+    email: new FormControl('',[
+      Validators.required,
+      Validators.email
+    ]),
+    birthday: new FormControl('',[
+      Validators.required
+    ]),
+    password: new FormControl('',[
+      Validators.required
+    ]),
+    passwordRepeat: new FormControl(),
+    sex: new FormControl(),
+    regulations: new FormControl(),
+  });
+  public onSubmit() :void
+  {
 
+  }
   public ngOnInit() :void
   {
+
+    
     this.emailSection=this.RegisterService.getEmialErrorSection()
   }
 
@@ -109,6 +130,7 @@ export class RegisterComponent implements OnInit,AfterViewInit{
     let elementRef=this.elementRef
     let elementRefBirthday = this.elementRef.nativeElement.querySelector('.birthday')
     elementRefBirthday.addEventListener('focusout', function() {
+      
       elementRefBirthday.classList.add("is-invalid")
       if(obj.RegisterService.ifDataPassedRegister(this.value)){
         elementRefBirthday.classList.remove("is-invalid")
@@ -120,14 +142,17 @@ export class RegisterComponent implements OnInit,AfterViewInit{
 
   private emailEvants() :void 
   {
+    /*
     let obj=this
     let elementRef=this.elementRef
     let elementRefEmail= this.elementRef.nativeElement.querySelector('.email')
     elementRefEmail.addEventListener('keyup', function() {
+      console.log(obj.register.controls.email)
       this.emailSection=obj.RegisterService.emailValid(this.value)
       obj.addClassEmailValid(elementRefEmail,this.emailSection)
       obj.showErrorsList(elementRefEmail,elementRef,'.emailValidErrors')
     });
+    */
   }
   
   private showErrorsList(elementRefID,elementRef,classValid:string) : void

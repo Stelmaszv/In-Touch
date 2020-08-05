@@ -2,84 +2,160 @@
     <div class="auth-section">
         <div class="section-name">{{ 'REGESTRER.title' | translate }}</div>
         <div class="register-section center-this">
-
-            <div class="form-elment email-form">
-                <label for="email">{{ 'REGESTRER.emailaddressField' | translate }}</label>
-                <div class="validError bg-danger text-white emailValidErrors">
-                    <li >{{ 'REGESTRERVALID.emptyEmail' | translate }}</li>
-                    <li *ngIf="emailSection.isInvalid">{{ 'REGESTRERVALID.invalidEmail' | translate }}</li>
-                    <li *ngIf="emailSection.isNotavailable">{{ 'REGESTRERVALID.notaverible' | translate }}</li>
-                    <li *ngIf="emailSection.isBanned">{{ 'REGESTRERVALID.banedword' | translate }}</li>
-                </div>
-                <div class="row">
-                    <div class="col-1">
-                        <div class="input-group-prepend">
-                            <div class="input-group-text">@</div>
+            <form [formGroup]="register" (ngSubmit)="onSubmit()">
+                <div class="form-elment email-form">
+                    <label for="email">
+                        {{ 'REGESTRER.emailaddressField' | translate }}
+                    </label>
+                    {{register.controls.email.errors}}
+                    <div class="validError bg-danger text-white emailValidErrors" style="display:block;" *ngIf="register.controls.email.invalid">
+                        <li *ngIf="register.controls.email.errors.required">
+                            {{ 'REGESTRERVALID.emptyEmail' | translate }}
+                        </li>
+                        <li 
+                            *ngIf="register.controls.email.errors.email">
+                            {{ 'REGESTRERVALID.invalidEmail' | translate }}
+                        </li>
+                        <li 
+                            *ngIf="emailSection.isNotavailable">
+                            {{ 'REGESTRERVALID.notaverible' | translate }}
+                        </li>
+                        <li 
+                            *ngIf="emailSection.isBanned">
+                            {{ 'REGESTRERVALID.banedword' | translate }}
+                        </li>
+                    </div>
+                    <div class="row">
+                        <div class="col-1">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">@</div>
+                            </div>
+                        </div>
+                        <div class="col-11">
+                            
+                            <input 
+                                class="form-control email" 
+                                for="email" 
+                                type="text" 
+                                placeholder="cos@domek.pl"
+                                formControlName="email"
+                                [ngClass]="{'is-valid': register.controls.email.valid, 'is-invalid': register.controls.email.invalid}"
+                            >
+                            <small 
+                                id="emailHelp" 
+                                class="form-text text-muted">
+                                {{ 'REGESTRER.emailHelp' | translate }}
+                            </small>
                         </div>
                     </div>
-                    <div class="col-11">
-                        <input 
-                            class="form-control email" 
-                            for="email" 
-                            type="text" 
-                            placeholder="cos@domek.pl"
-                        >
-                        <small id="emailHelp" class="form-text text-muted">{{ 'REGESTRER.emailHelp' | translate }}</small>
+                </div>
+                <div class="form-elment data-form">
+                    <label for="birthday">{{ 'REGESTRER.birthday' | translate }}</label>
+                    <div class="validError bg-danger text-white birthdayValidErrors">
+                        <li>{{ 'REGESTRERVALID.inValidbirthday' | translate }}</li>
+                    </div>
+                    <input 
+                        type="date" 
+                        class="form-control birthday" 
+                        id="Password"
+                        formControlName="birthday"
+                    >
+                </div>
+                <div class="form-elment Password-form ">
+                    <label for="Password">
+                        {{ 'REGESTRER.passwordField' | translate }}
+                    </label>
+                    <div class="validError bg-danger text-white passwordValidErrors">
+                        <li>
+                             {{ 'REGESTRERVALID.emptyPassword' | translate }}
+                        </li>
+                        <li>{{ 'REGESTRERVALID.passtoWeek' | translate }}</li>
+                        <li>{{ 'REGESTRERVALID.passNotthesame' | translate }}</li>
+                    </div>
+                    <div class="progress">
+                        <div 
+                            class="progress-bar" 
+                            style="width: 0" 
+                            role="progressbar" 
+                            aria-valuenow="0" 
+                            ria-valuemin="0" 
+                            aria-valuemax="100">
+                        </div>
+                    </div>
+                    <input 
+                        type="password" 
+                        class="form-control password" 
+                        id="Password"
+                        formControlName="password"
+                    >
+                    <small 
+                        id="passwordHelp" 
+                        class="form-text text-muted">
+                        {{ 'REGESTRER.passwordhelp' | translate }}
+                    </small>
+                </div>
+                <div class="form-elment Password-repeat-form">
+                    <label 
+                        for="exampleInputPassword1">
+                        {{ 'REGESTRER.passwordRepeat' | translate }}
+                    </label>
+                    <div class="validError bg-danger text-white PasswordRepeatValid">
+                        <li>{{ 'REGESTRERVALID.emptyPassword' | translate }}</li>
+                        <li>{{ 'REGESTRERVALID.passNotthesame' | translate }}</li>
+                    </div>
+                    <input 
+                        type="password" 
+                        class="form-control Password-repeat" 
+                        id="exampleInputPassword1"
+                        formControlName="passwordRepeat"
+                    >
+                </div>
+                <div class="form-elment sex-form">
+                    <label 
+                        for="exampleInputEmail1">{{ 'REGESTRER.sexField' | translate }}
+                    </label>
+                    <div class="validError bg-danger text-white">
+                        <li>{{ 'REGESTRERVALID.emptySex' | translate }}</li>
+                    </div>
+                    <select class="form-control sex" formControlName="sex">
+                        <option value="male">{{ 'REGESTRER.sexFirst' | translate }}</option>
+                        <option value="female">{{ 'REGESTRER.sexSecund' | translate }}</option>
+                    </select>
+                </div>
+                <div class="form-elment regulations-form">
+                    <div class="row">
+                        <div class="col-1">
+                            <input 
+                                type="checkbox" 
+                                class="form-check-input is-invalid" 
+                                id="exampleCheck1"
+                                formControlName="regulations"
+                            >
+                        </div>
+                        <div class="col-11">
+                            <label 
+                                class="form-check-label" 
+                                for="exampleCheck1">
+                                    {{ 'REGESTRER.regulations' | translate }}
+                            </label>
+                            <span 
+                                class="validError">
+                                {{ 'REGESTRERVALID.regulationsNotacept' | translate }}
+                            </span>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="form-elment data-form">
-                <label for="birthday">{{ 'REGESTRER.birthday' | translate }}</label>
-                <div class="validError bg-danger text-white birthdayValidErrors">
-                    <li>{{ 'REGESTRERVALID.emptyBirthday' | translate }}</li>
-                    <li>{{ 'REGESTRERVALID.inValidbirthday' | translate }}</li>
-                </div>
-                <input type="date" class="form-control birthday" id="Password">
-            </div>
-            <div class="form-elment Password-form ">
-                <label for="Password">{{ 'REGESTRER.passwordField' | translate }}</label>
-                <div class="validError bg-danger text-white passwordValidErrors">
-                    <li>{{ 'REGESTRERVALID.emptyPassword' | translate }}</li>
-                    <li>{{ 'REGESTRERVALID.passtoWeek' | translate }}</li>
-                    <li>{{ 'REGESTRERVALID.passNotthesame' | translate }}</li>
-                </div>
-                <div class="progress">
-                    <div class="progress-bar" style="width: 0" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <input type="password" class="form-control password" id="Password">
-                <small id="passwordHelp" class="form-text text-muted">{{ 'REGESTRER.passwordhelp' | translate }}</small>
-            </div>
-            <div class="form-elment Password-repeat-form">
-                <label for="exampleInputPassword1">{{ 'REGESTRER.passwordRepeat' | translate }}</label>
-                <div class="validError bg-danger text-white PasswordRepeatValid">
-                    <li>{{ 'REGESTRERVALID.emptyPassword' | translate }}</li>
-                    <li>{{ 'REGESTRERVALID.passNotthesame' | translate }}</li>
-                </div>
-                <input type="password" class="form-control Password-repeat" id="exampleInputPassword1">
-            </div>
-            <div class="form-elment sex-form">
-                <label for="exampleInputEmail1">{{ 'REGESTRER.sexField' | translate }}</label>
-                <div class="validError bg-danger text-white">
-                    <li>{{ 'REGESTRERVALID.emptySex' | translate }}</li>
-                </div>
-                <select class="form-control sex">
-                    <option>{{ 'REGESTRER.sexFirst' | translate }}</option>
-                    <option>{{ 'REGESTRER.sexSecund' | translate }}</option>
-                </select>
-            </div>
-            <div class="form-elment regulations-form">
-                <div class="row">
-                    <div class="col-1">
-                        <input type="checkbox" class="form-check-input is-invalid" id="exampleCheck1">
-                    </div>
-                    <div class="col-11">
-                        <label class="form-check-label" for="exampleCheck1">{{ 'REGESTRER.regulations' | translate }}</label>
-                        <span class="validError">{{ 'REGESTRERVALID.regulationsNotacept' | translate }}</span>
-                    </div>
-                </div>
-            </div>
-            <button type="button" class="btn btn-primary btn-lg btn-block">{{ 'REGESTRER.registerButton' | translate }}</button>
-            <button type="button" class="btn btn-warning btn-lg btn-block">{{ 'REGESTRER.iarledyhaveAccountButton' | translate }}</button>
+                <button 
+                    type="button" 
+                    class="btn btn-primary btn-lg btn-block">
+                    {{ 'REGESTRER.registerButton' | translate }}
+                </button>
+                <button 
+                    type="button" 
+                    class="btn btn-warning btn-lg btn-block">
+                    {{ 'REGESTRER.iarledyhaveAccountButton' | translate }}
+                    </button>
+            </form>       
         </div>
     </div>
 </section>
