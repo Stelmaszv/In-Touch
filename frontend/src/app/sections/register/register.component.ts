@@ -26,18 +26,26 @@ export class RegisterComponent implements OnInit,AfterViewInit{
     password: new FormControl('',[
       Validators.required
     ]),
-    passwordRepeat: new FormControl(),
-    sex: new FormControl(),
-    regulations: new FormControl(),
+    passwordRepeat: new FormControl('',[
+      Validators.required
+    ]),
+    sex: new FormControl('',[
+      Validators.required
+    ]),
+    regulations: new FormControl('',[
+      Validators.required
+    ]),
   });
-  public onSubmit() :void
+  public onSubmit()
   {
-
+      if (this.register.valid){
+        alert('ok')
+      }else{
+        console.log(this.register.errors)
+      }
   }
   public ngOnInit() :void
   {
-
-    
     this.emailSection=this.RegisterService.getEmialErrorSection()
   }
 
@@ -130,6 +138,14 @@ export class RegisterComponent implements OnInit,AfterViewInit{
     let elementRef=this.elementRef
     let elementRefBirthday = this.elementRef.nativeElement.querySelector('.birthday')
     elementRefBirthday.addEventListener('focusout', function() {
+      obj.addClassEmailValid(obj.register.controls.birthday.errors,elementRefBirthday)
+      obj.showErrorsList(elementRefBirthday,elementRef,'.birthdayValidErrors')
+    })  
+    /*
+    let obj=this
+    let elementRef=this.elementRef
+    let elementRefBirthday = this.elementRef.nativeElement.querySelector('.birthday')
+    elementRefBirthday.addEventListener('focusout', function() {
       
       elementRefBirthday.classList.add("is-invalid")
       if(obj.RegisterService.ifDataPassedRegister(this.value)){
@@ -138,33 +154,22 @@ export class RegisterComponent implements OnInit,AfterViewInit{
       }
       obj.showErrorsList(elementRefBirthday,elementRef,'.birthdayValidErrors')
     });
+    */
   }
-
   private emailEvants() :void 
   {
     let obj=this
     let elementRef=this.elementRef
-    let elementRefEmail= this.elementRef.nativeElement.querySelector('.email')
+    let elementRefEmail = this.elementRef.nativeElement.querySelector('.email')
     elementRefEmail.addEventListener('keyup', function() {
+      obj.addClassEmailValid(obj.register.controls.email.errors,elementRefEmail)
       obj.showErrorsList(elementRefEmail,elementRef,'.emailValidErrors')
     });
-    /*
-    let obj=this
-    let elementRef=this.elementRef
-    let elementRefEmail= this.elementRef.nativeElement.querySelector('.email')
-    elementRefEmail.addEventListener('keyup', function() {
-      console.log(obj.register.controls.email)
-      this.emailSection=obj.RegisterService.emailValid(this.value)
-      obj.addClassEmailValid(elementRefEmail,this.emailSection)
-      obj.showErrorsList(elementRefEmail,elementRef,'.emailValidErrors')
-    });
-    */
   }
   
   private showErrorsList(elementRefID,elementRef,classValid:string) : void
   {
     let el=elementRef.nativeElement.querySelector(classValid)
-    console.log(el)
     let logError=elementRef.nativeElement.querySelector('.input-group-text')
     if(elementRefID.classList.contains('is-invalid')){
       logError.classList.add("invalidErrorsListLogo")
@@ -177,10 +182,11 @@ export class RegisterComponent implements OnInit,AfterViewInit{
     }
   }
 
-  private addClassEmailValid(el,Section) : void
+  private addClassEmailValid(formItem :object,el) : void
   {
+    console.log(formItem)
     el.classList.add("is-invalid")
-    if(!Section.isInvalid && !Section.isBanned && !Section.isNotavailable){
+    if(!formItem){
       el.classList.remove("is-invalid")
       el.classList.add("is-valid")
     }

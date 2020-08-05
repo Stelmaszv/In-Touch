@@ -9,7 +9,7 @@
                     </label>
                     <div 
                         class="validError bg-danger text-white emailValidErrors"  
-                        >
+                    >
                         <div *ngIf="register.controls.email.invalid">
                             <li *ngIf="register.controls.email.errors.required">
                                 {{ 'REGESTRERVALID.emptyEmail' | translate }}
@@ -42,7 +42,6 @@
                                 type="text" 
                                 placeholder="cos@domek.pl"
                                 formControlName="email"
-                                [ngClass]="{'is-valid': register.controls.email.valid, 'is-invalid': register.controls.email.invalid}"
                             >
                             <small 
                                 id="emailHelp" 
@@ -55,7 +54,13 @@
                 <div class="form-elment data-form">
                     <label for="birthday">{{ 'REGESTRER.birthday' | translate }}</label>
                     <div class="validError bg-danger text-white birthdayValidErrors">
-                        <li>{{ 'REGESTRERVALID.inValidbirthday' | translate }}</li>
+                        <div *ngIf="register.controls.birthday.invalid">
+                            <li 
+                                *ngIf="register.controls.birthday.errors.required">
+                                {{ 'REGESTRERVALID.inValidbirthday' | translate }}
+                            </li>
+                            <li>{{ 'REGESTRERVALID.emptyBirthday' | translate }}</li>
+                        </div>
                     </div>
                     <input 
                         type="date" 
@@ -118,9 +123,11 @@
                         for="exampleInputEmail1">{{ 'REGESTRER.sexField' | translate }}
                     </label>
                     <div class="validError bg-danger text-white">
-                        <li>{{ 'REGESTRERVALID.emptySex' | translate }}</li>
+                        <div *ngIf="register.controls.sex.invalid">
+                            <li>{{ 'REGESTRERVALID.emptySex' | translate }}</li>
+                        </div>
                     </div>
-                    <select class="form-control sex" formControlName="sex">
+                    <select class="form-control sex" formControlName="sex" placeholder="wybierz płec">
                         <option value="male">{{ 'REGESTRER.sexFirst' | translate }}</option>
                         <option value="female">{{ 'REGESTRER.sexSecund' | translate }}</option>
                     </select>
@@ -149,7 +156,7 @@
                     </div>
                 </div>
                 <button 
-                    type="button" 
+                    type="submit" 
                     class="btn btn-primary btn-lg btn-block">
                     {{ 'REGESTRER.registerButton' | translate }}
                 </button>
