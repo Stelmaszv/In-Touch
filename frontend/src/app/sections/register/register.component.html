@@ -7,23 +7,26 @@
                     <label for="email">
                         {{ 'REGESTRER.emailaddressField' | translate }}
                     </label>
-                    {{register.controls.email.errors}}
-                    <div class="validError bg-danger text-white emailValidErrors" style="display:block;" *ngIf="register.controls.email.invalid">
-                        <li *ngIf="register.controls.email.errors.required">
-                            {{ 'REGESTRERVALID.emptyEmail' | translate }}
-                        </li>
-                        <li 
-                            *ngIf="register.controls.email.errors.email">
-                            {{ 'REGESTRERVALID.invalidEmail' | translate }}
-                        </li>
-                        <li 
-                            *ngIf="emailSection.isNotavailable">
-                            {{ 'REGESTRERVALID.notaverible' | translate }}
-                        </li>
-                        <li 
-                            *ngIf="emailSection.isBanned">
-                            {{ 'REGESTRERVALID.banedword' | translate }}
-                        </li>
+                    <div 
+                        class="validError bg-danger text-white emailValidErrors"  
+                        >
+                        <div *ngIf="register.controls.email.invalid">
+                            <li *ngIf="register.controls.email.errors.required">
+                                {{ 'REGESTRERVALID.emptyEmail' | translate }}
+                            </li>
+                            <li 
+                                *ngIf="register.controls.email.errors.email">
+                                {{ 'REGESTRERVALID.invalidEmail' | translate }}
+                            </li>
+                            <li 
+                                *ngIf="emailSection.isNotavailable">
+                                {{ 'REGESTRERVALID.notaverible' | translate }}
+                            </li>
+                            <li 
+                                *ngIf="emailSection.isBanned">
+                                {{ 'REGESTRERVALID.banedword' | translate }}
+                            </li>
+                        </div>
                     </div>
                     <div class="row">
                         <div class="col-1">

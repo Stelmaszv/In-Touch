@@ -142,6 +142,12 @@ export class RegisterComponent implements OnInit,AfterViewInit{
 
   private emailEvants() :void 
   {
+    let obj=this
+    let elementRef=this.elementRef
+    let elementRefEmail= this.elementRef.nativeElement.querySelector('.email')
+    elementRefEmail.addEventListener('keyup', function() {
+      obj.showErrorsList(elementRefEmail,elementRef,'.emailValidErrors')
+    });
     /*
     let obj=this
     let elementRef=this.elementRef
@@ -158,15 +164,16 @@ export class RegisterComponent implements OnInit,AfterViewInit{
   private showErrorsList(elementRefID,elementRef,classValid:string) : void
   {
     let el=elementRef.nativeElement.querySelector(classValid)
+    console.log(el)
     let logError=elementRef.nativeElement.querySelector('.input-group-text')
     if(elementRefID.classList.contains('is-invalid')){
       logError.classList.add("invalidErrorsListLogo")
       elementRefID.classList.add("invalidErrorsList")
-      el.style.display='block'
+      el.classList.add("show-Error")
     }else{
       logError.classList.remove("invalidErrorsListLogo")
       elementRefID.classList.remove("invalidErrorsList")
-      el.style.display='none'
+      el.classList.remove("show-Error")
     }
   }
 
