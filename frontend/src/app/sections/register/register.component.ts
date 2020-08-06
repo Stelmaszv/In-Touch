@@ -3,6 +3,8 @@ import {RegisterService} from 'src/app/service/register/register.service'
 import {PasswordValidService} from 'src/app/service/password/password-valid.service'
 import {FormControl, FormGroup} from '@angular/forms';
 import { Validators } from '@angular/forms';
+import {dataPassed} from 'src/app/validator/register/registerValid'
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -21,7 +23,8 @@ export class RegisterComponent implements OnInit,AfterViewInit{
       Validators.email
     ]),
     birthday: new FormControl('',[
-      Validators.required
+      Validators.required,
+      dataPassed()
     ]),
     password: new FormControl('',[
       Validators.required
@@ -138,6 +141,7 @@ export class RegisterComponent implements OnInit,AfterViewInit{
     let elementRef=this.elementRef
     let elementRefBirthday = this.elementRef.nativeElement.querySelector('.birthday')
     elementRefBirthday.addEventListener('focusout', function() {
+      console.log(obj.register.controls.birthday.errors)
       obj.addClassEmailValid(obj.register.controls.birthday.errors,elementRefBirthday)
       obj.showErrorsList(elementRefBirthday,elementRef,'.birthdayValidErrors')
     })  

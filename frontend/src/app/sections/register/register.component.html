@@ -56,10 +56,10 @@
                     <div class="validError bg-danger text-white birthdayValidErrors">
                         <div *ngIf="register.controls.birthday.invalid">
                             <li 
-                                *ngIf="register.controls.birthday.errors.required">
+                                *ngIf="register.controls.birthday.errors.dataPassed">
                                 {{ 'REGESTRERVALID.inValidbirthday' | translate }}
                             </li>
-                            <li>{{ 'REGESTRERVALID.emptyBirthday' | translate }}</li>
+                            <li *ngIf="register.controls.birthday.errors.required">{{ 'REGESTRERVALID.emptyBirthday' | translate }}</li>
                         </div>
                     </div>
                     <input 
