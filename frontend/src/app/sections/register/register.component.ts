@@ -3,7 +3,8 @@ import {RegisterService} from 'src/app/service/register/register.service'
 import {PasswordValidService} from 'src/app/service/password/password-valid.service'
 import {FormControl, FormGroup} from '@angular/forms';
 import { Validators } from '@angular/forms';
-import {dataPassed} from 'src/app/validator/register/registerValid'
+import {dataPassed} from 'src/app/validator/register/dataPassed'
+import {posswordStrenght} from 'src/app/validator/register/posswordStrenght'
 
 @Component({
   selector: 'app-register',
@@ -27,7 +28,8 @@ export class RegisterComponent implements OnInit,AfterViewInit{
       dataPassed()
     ]),
     password: new FormControl('',[
-      Validators.required
+      Validators.required,
+      posswordStrenght()
     ]),
     passwordRepeat: new FormControl('',[
       Validators.required
@@ -80,6 +82,7 @@ export class RegisterComponent implements OnInit,AfterViewInit{
 
   private passwordValid() :void
   {
+    
     let obj=this
     let elementRef = this.elementRef
     let elementRefPassword = this.elementRef.nativeElement.querySelector('.password')
@@ -133,8 +136,9 @@ export class RegisterComponent implements OnInit,AfterViewInit{
       let progressBar = elementRef.nativeElement.querySelector('.progress')
       progressBar.style.visibility= swich
     }
+    
   }
-
+  
   private birthdayEvants() :void 
   {
     let obj=this
@@ -159,6 +163,7 @@ export class RegisterComponent implements OnInit,AfterViewInit{
       obj.showErrorsList(elementRefBirthday,elementRef,'.birthdayValidErrors')
     });
     */
+    
   }
   private emailEvants() :void 
   {

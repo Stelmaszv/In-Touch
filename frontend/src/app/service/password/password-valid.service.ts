@@ -5,7 +5,6 @@ import { ValueConverter } from '@angular/compiler/src/render3/view/template';
   providedIn: 'root'
 })
 export class PasswordValidService {
-  private targetScore=100
   public validate(value:string) : number
   {
     return this.setScore(value)

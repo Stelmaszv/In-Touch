@@ -59,7 +59,10 @@
                                 *ngIf="register.controls.birthday.errors.dataPassed">
                                 {{ 'REGESTRERVALID.inValidbirthday' | translate }}
                             </li>
-                            <li *ngIf="register.controls.birthday.errors.required">{{ 'REGESTRERVALID.emptyBirthday' | translate }}</li>
+                            <li 
+                                *ngIf="register.controls.birthday.errors.required">
+                                {{ 'REGESTRERVALID.emptyBirthday' | translate }}
+                            </li>
                         </div>
                     </div>
                     <input 
@@ -74,11 +77,18 @@
                         {{ 'REGESTRER.passwordField' | translate }}
                     </label>
                     <div class="validError bg-danger text-white passwordValidErrors">
-                        <li>
-                             {{ 'REGESTRERVALID.emptyPassword' | translate }}
-                        </li>
-                        <li>{{ 'REGESTRERVALID.passtoWeek' | translate }}</li>
-                        <li>{{ 'REGESTRERVALID.passNotthesame' | translate }}</li>
+                        <div *ngIf="register.controls.password.invalid">
+                            <li 
+                                *ngIf="register.controls.password.errors.required" 
+                            >
+                                {{ 'REGESTRERVALID.emptyPassword' | translate }}
+                            </li>
+                            <li 
+                                *ngIf="register.controls.password.errors.posswordStrenght" >
+                                {{ 'REGESTRERVALID.passtoWeek' | translate }}
+                            </li>
+                            <!--<li>{{ 'REGESTRERVALID.passNotthesame' | translate }}</li>-->
+                        </div>
                     </div>
                     <div class="progress">
                         <div 
