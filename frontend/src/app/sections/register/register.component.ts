@@ -21,7 +21,7 @@ export class RegisterComponent implements OnInit,AfterViewInit{
     private PasswordValid:PasswordValidService
   ){}
   public register = new FormGroup({
-    email: new FormControl('',[
+    email: new FormControl('stelmaszv@gmail.com',[
       Validators.required,
       Validators.email
     ]),
@@ -29,22 +29,23 @@ export class RegisterComponent implements OnInit,AfterViewInit{
       Validators.required,
       dataPassed()
     ]),
-    password: new FormControl('',[
+    password: new FormControl('Saf!eeqe$1',[
       Validators.required,
       posswordStrenght(),
       passwordMatch('passwordRepeat')
     ]),
-    passwordRepeat: new FormControl('',[
+    passwordRepeat: new FormControl('Saf!eeqe$1',[
       Validators.required,
       passwordMatch('password')
     ]),
     sex: new FormControl('',[
       Validators.required
     ]),
-    regulations: new FormControl('',[
+    regulations: new FormControl(false,[
       Validators.required
     ]),
   });
+
   public onSubmit()
   {
       if (this.register.valid){
@@ -53,6 +54,7 @@ export class RegisterComponent implements OnInit,AfterViewInit{
         console.log(this.register.errors)
       }
   }
+
   public ngOnInit() :void
   {
     this.emailSection=this.RegisterService.getEmialErrorSection()
@@ -64,6 +66,23 @@ export class RegisterComponent implements OnInit,AfterViewInit{
     this.emailEvants();
     this.birthdayEvants();
     this.repeatPassword();
+    this.sexEvant()
+  }
+  
+  private sexEvant(){
+    let obj=this
+    let elementRef = this.elementRef
+    let elementRefSex = this.elementRef.nativeElement.querySelector('.sex')
+    elementRefSex.addEventListener('focusout', function() {
+        if(!obj.register.controls.sex.value){
+          elementRefSex.classList.add('is-invalid')
+          obj.showErrorsList(elementRefSex,elementRef,'.SexValid')
+        }else{
+          elementRefSex.classList.remove('is-invalid')
+          elementRefSex.classList.add('is-valid')
+        }
+        obj.showErrorsList(elementRefSex,elementRef,'.SexValid')
+    });
   }
 
   private repeatPassword() :void
@@ -174,21 +193,6 @@ export class RegisterComponent implements OnInit,AfterViewInit{
       obj.addClassEmailValid(obj.register.controls.birthday.errors,elementRefBirthday)
       obj.showErrorsList(elementRefBirthday,elementRef,'.birthdayValidErrors')
     })  
-    /*
-    let obj=this
-    let elementRef=this.elementRef
-    let elementRefBirthday = this.elementRef.nativeElement.querySelector('.birthday')
-    elementRefBirthday.addEventListener('focusout', function() {
-      
-      elementRefBirthday.classList.add("is-invalid")
-      if(obj.RegisterService.ifDataPassedRegister(this.value)){
-        elementRefBirthday.classList.remove("is-invalid")
-        elementRefBirthday.classList.add("is-valid")
-      }
-      obj.showErrorsList(elementRefBirthday,elementRef,'.birthdayValidErrors')
-    });
-    */
-    
   }
   private emailEvants() :void 
   {
@@ -218,7 +222,6 @@ export class RegisterComponent implements OnInit,AfterViewInit{
 
   private addClassEmailValid(formItem :object,el) : void
   {
-    console.log(formItem)
     el.classList.add("is-invalid")
     if(!formItem){
       el.classList.remove("is-invalid")

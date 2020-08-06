@@ -100,7 +100,7 @@
                         </div>
                     </div>
                     <input 
-                        type="test" 
+                        type="password" 
                         class="form-control password" 
                         id="Password"
                         formControlName="password"
@@ -127,7 +127,7 @@
                         </div>
                     </div>
                     <input 
-                        type="test" 
+                        type="password" 
                         class="form-control Password-repeat" 
                         id="exampleInputPassword1"
                         formControlName="passwordRepeat"
@@ -137,7 +137,7 @@
                     <label 
                         for="exampleInputEmail1">{{ 'REGESTRER.sexField' | translate }}
                     </label>
-                    <div class="validError bg-danger text-white">
+                    <div class="validError bg-danger text-white SexValid">
                         <div *ngIf="register.controls.sex.invalid">
                             <li>{{ 'REGESTRERVALID.emptySex' | translate }}</li>
                         </div>
@@ -172,6 +172,7 @@
                 </div>
                 <button 
                     type="submit" 
+                    [disabled]="!register.valid"
                     class="btn btn-primary btn-lg btn-block">
                     {{ 'REGESTRER.registerButton' | translate }}
                 </button>
