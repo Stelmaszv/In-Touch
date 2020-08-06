@@ -49,7 +49,12 @@ export class RegisterComponent implements OnInit,AfterViewInit{
   public onSubmit()
   {
       if (this.register.valid){
-        alert('ok')
+         if(this.regulationsTrue()){
+           this.registerStart()
+         }else{
+           this.regulationSwich()
+         }
+    
       }else{
         console.log(this.register.errors)
       }
@@ -66,10 +71,45 @@ export class RegisterComponent implements OnInit,AfterViewInit{
     this.emailEvants();
     this.birthdayEvants();
     this.repeatPassword();
-    this.sexEvant()
+    this.sexEvant();
+    this.regulationsEvants();
   }
   
-  private sexEvant(){
+  private registerStart(): void
+  {
+    console.log('add api in this place')
+  }
+  
+  private regulationsEvants() :void
+  {
+    let obj=this
+    let elementRefRegulations = this.elementRef.nativeElement.querySelector('.regulationsValid')
+    elementRefRegulations.addEventListener('change', function() {
+        obj.regulationSwich()
+    })
+  }
+
+  private regulationSwich() :void
+  {
+    let elementRefRegulations = this.elementRef.nativeElement.querySelector('.regulationsValid')
+    if(this.regulationsTrue()){
+      elementRefRegulations.classList.remove('is-invalid')
+      elementRefRegulations.classList.add('is-valid')
+    }else{
+      elementRefRegulations.classList.add('is-invalid')
+      elementRefRegulations.classList.remove('is-valid')
+    }
+  }
+
+  private regulationsTrue() :boolean
+  {
+      if(this.register.controls.regulations.value){
+          return true
+      }
+  }
+  
+  private sexEvant() :void
+  {
     let obj=this
     let elementRef = this.elementRef
     let elementRefSex = this.elementRef.nativeElement.querySelector('.sex')
@@ -127,7 +167,6 @@ export class RegisterComponent implements OnInit,AfterViewInit{
 
   private passwordValid() :void
   {
-    
     let obj=this
     let elementRef = this.elementRef
     let elementRefPassword = this.elementRef.nativeElement.querySelector('.password')
@@ -139,12 +178,14 @@ export class RegisterComponent implements OnInit,AfterViewInit{
     elementRefPassword.addEventListener('focusout', function() {
       moveOut(elementRefPassword)
     });
-    function posswordStrenght(value:string){
+    function posswordStrenght(value:string) :void
+    {
       let progresBarStatus= elementRef.nativeElement.querySelector('.progress-bar')
       progresBarStatus.style.width=obj.PasswordValid.validate(value)+"%"
       setPasswordStyle(progresBarStatus,obj.PasswordValid.validate(value));
     }
-    function setPasswordStyle(progresBarStatus,procent:number){
+    function setPasswordStyle(progresBarStatus,procent:number) :void
+    {
         let className='bg-danger'
         elementRefPassword.classList.remove("is-valid")
         elementRefPassword.classList.remove("is-invalid")
@@ -167,17 +208,20 @@ export class RegisterComponent implements OnInit,AfterViewInit{
 
         progresBarStatus.classList.add(className)
     }
-    function moveIn(eR){
+    function moveIn(eR) :void
+    {
       progresSwich('visible')
       eR.style.borderRadius='0px 0px 10px 10px'
     }
-    function moveOut(eR){
+    function moveOut(eR) :void
+    {
       if (!elementRefPassword.classList.contains('is-invalid')){
         progresSwich('hidden')
         eR.style.borderRadius='10px'
       }
     }
-    function progresSwich(swich:string){
+    function progresSwich(swich:string) :void 
+    {
       let progressBar = elementRef.nativeElement.querySelector('.progress')
       progressBar.style.visibility= swich
     }

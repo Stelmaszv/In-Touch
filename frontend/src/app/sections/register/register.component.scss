@@ -2,6 +2,9 @@
     .register-section{
         margin: 50px;
         .form-elment{
+            &.regulations{
+                margin-left: -80%;
+            }
             &.email-form{
                 .invalidErrorsListLogo{
                     border-radius: 0px 0px 10px 10px;

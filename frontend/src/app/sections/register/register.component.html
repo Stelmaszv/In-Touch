@@ -147,26 +147,22 @@
                         <option value="female">{{ 'REGESTRER.sexSecund' | translate }}</option>
                     </select>
                 </div>
-                <div class="form-elment regulations-form">
-                    <div class="row">
-                        <div class="col-1">
-                            <input 
-                                type="checkbox" 
-                                class="form-check-input is-invalid" 
-                                id="exampleCheck1"
-                                formControlName="regulations"
-                            >
-                        </div>
-                        <div class="col-11">
-                            <label 
-                                class="form-check-label" 
-                                for="exampleCheck1">
-                                    {{ 'REGESTRER.regulations' | translate }}
-                            </label>
-                            <span 
-                                class="validError">
-                                {{ 'REGESTRERVALID.regulationsNotacept' | translate }}
-                            </span>
+                <div class="form-elment">
+                    <div class="custom-control custom-checkbox mb-3">
+                        <input 
+                            type="checkbox" 
+                            class="custom-control-input regulationsValid" 
+                            id="customControlValidation1"
+                            formControlName="regulations"
+                        >
+                        <label 
+                            class="custom-control-label" 
+                            for="customControlValidation1">
+                            {{ 'REGESTRER.regulations' | translate }}
+                        </label>
+                        <div 
+                            class="invalid-feedback"> 
+                            {{ 'REGESTRERVALID.regulationsNotacept' | translate }}
                         </div>
                     </div>
                 </div>
@@ -185,3 +181,5 @@
         </div>
     </div>
 </section>
+
+
