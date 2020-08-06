@@ -16,12 +16,50 @@
         "title":"About"
     },
     "LOGIN":{
-        "title":"Login"
+        "title":"Login",
+        "emailaddressField":"Email address" ,
+        "emailHelp":"We'll never share your email with anyone else.",
+        "passwordField":"Password",
+        "rememborButton":"Remembor me",
+        "loginButton":"Login",
+        "IdonthaveAccount":"I dont have account",
+        "paswordForget":"I forget password"
     },
     "REGESTRER":{
-        "title":"Register"
+        "title":"Register",
+        "emailaddressField":"Email address" ,
+        "emailHelp":"We'll never share your email with anyone else.",
+        "passwordField":"Password",
+        "passwordhelp":"We'll never share your email with anyone else.",
+        "passwordRepeat":"Password repeat",
+        "birthday":"Birthday",
+        "sexField":"Sex",
+        "sexFirst":"Man",
+        "sexSecund":"Female",
+        "regulations":"I acept regulations",
+        "registerButton":"Register",
+        "iarledyhaveAccountButton":"I arledy have acout"
+    },
+    "REGESTRERVALID":{
+        "emptyEmail":"empty Email",
+        "invalidEmail":"invalid emial 'np.samething@home.com'",
+        "notaverible":"Email samething@home.com is not averable",
+        "emptyBirthday":"empty Birthday",
+        "inValidbirthday":"inValid Birthday",
+        "emptyPassword":"empty Password",
+        "passtoWeek":"password is to week",
+        "passNotthesame":"passwords are not the same",
+        "emptyPassrepat":"empty repeat  Password",
+        "emptySex":"empty sex",
+        "regulationsNotacept":"Please acept regulations",
+        "banedword":"This email is not allowed"
     },
     "CHOOSELANGUAGE":{
         "title":"Choose Language"
+    },
+    "LOGINVALID":{
+        "invalidData":"Invalid email or password",
+        "isNotActive":"Accont has bean baned"
     }
+
 }
