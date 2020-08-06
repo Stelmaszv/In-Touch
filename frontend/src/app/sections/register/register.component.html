@@ -87,7 +87,6 @@
                                 *ngIf="register.controls.password.errors.posswordStrenght" >
                                 {{ 'REGESTRERVALID.passtoWeek' | translate }}
                             </li>
-                            <!--<li>{{ 'REGESTRERVALID.passNotthesame' | translate }}</li>-->
                         </div>
                     </div>
                     <div class="progress">
@@ -101,7 +100,7 @@
                         </div>
                     </div>
                     <input 
-                        type="password" 
+                        type="test" 
                         class="form-control password" 
                         id="Password"
                         formControlName="password"
@@ -118,11 +117,17 @@
                         {{ 'REGESTRER.passwordRepeat' | translate }}
                     </label>
                     <div class="validError bg-danger text-white PasswordRepeatValid">
-                        <li>{{ 'REGESTRERVALID.emptyPassword' | translate }}</li>
-                        <li>{{ 'REGESTRERVALID.passNotthesame' | translate }}</li>
+                        <div  *ngIf="register.controls.passwordRepeat.invalid">
+                            <li *ngIf="register.controls.passwordRepeat.errors.required" >
+                                {{ 'REGESTRERVALID.emptyPassword' | translate }}
+                            </li>
+                            <li *ngIf="register.controls.passwordRepeat.errors.passwordNotMatch">
+                                {{ 'REGESTRERVALID.passNotthesame' | translate }}
+                            </li>
+                        </div>
                     </div>
                     <input 
-                        type="password" 
+                        type="test" 
                         class="form-control Password-repeat" 
                         id="exampleInputPassword1"
                         formControlName="passwordRepeat"

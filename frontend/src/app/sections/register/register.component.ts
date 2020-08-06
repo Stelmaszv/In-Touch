@@ -5,6 +5,8 @@ import {FormControl, FormGroup} from '@angular/forms';
 import { Validators } from '@angular/forms';
 import {dataPassed} from 'src/app/validator/register/dataPassed'
 import {posswordStrenght} from 'src/app/validator/register/posswordStrenght'
+import {passwordMatch} from 'src/app/validator/register/posswordMatch'
+
 
 @Component({
   selector: 'app-register',
@@ -29,10 +31,12 @@ export class RegisterComponent implements OnInit,AfterViewInit{
     ]),
     password: new FormControl('',[
       Validators.required,
-      posswordStrenght()
+      posswordStrenght(),
+      passwordMatch('passwordRepeat')
     ]),
     passwordRepeat: new FormControl('',[
-      Validators.required
+      Validators.required,
+      passwordMatch('password')
     ]),
     sex: new FormControl('',[
       Validators.required
@@ -67,15 +71,37 @@ export class RegisterComponent implements OnInit,AfterViewInit{
     let obj=this
     let elementRef = this.elementRef
     let elementRefRepeatPassword = this.elementRef.nativeElement.querySelector('.Password-repeat')
-    elementRefRepeatPassword.addEventListener('focusout', function() {
+    elementRefRepeatPassword.addEventListener('keyup', function() {
       matchPasswords(this.value)
     });
     function matchPasswords(value){
         let password = elementRef.nativeElement.querySelector('.password')
         if(value!=password.value){
           elementRefRepeatPassword.classList.add('is-invalid')
-          obj.showErrorsList(elementRefRepeatPassword,elementRef,'.PasswordRepeatValid')
-          password.classList.add('is-invalid')
+          elementRefRepeatPassword.classList.remove('is-valid')
+          switchPassword(password,true)
+        }else{
+          elementRefRepeatPassword.classList.add('is-valid')
+          elementRefRepeatPassword.classList.remove('is-invalid')
+          switchPassword(password,false)
+        }
+        obj.showErrorsList(elementRefRepeatPassword,elementRef,'.PasswordRepeatValid')
+        function switchPassword(password,passwordMatch:boolean){
+          if(passwordMatch){
+            if(password.classList.contains('is-valid')){
+                password.classList.remove('is-valid')
+                password.classList.add('is-invalid')
+            }else{
+              password.classList.add('is-invalid')
+            }
+          }else{
+            if(password.classList.contains('is-invalid')){
+              password.classList.remove('is-invalid')
+              password.classList.add('is-valid')
+            }else{
+              password.classList.add('is-valid')
+            }
+          }
         }
     }
   }
@@ -145,7 +171,6 @@ export class RegisterComponent implements OnInit,AfterViewInit{
     let elementRef=this.elementRef
     let elementRefBirthday = this.elementRef.nativeElement.querySelector('.birthday')
     elementRefBirthday.addEventListener('focusout', function() {
-      console.log(obj.register.controls.birthday.errors)
       obj.addClassEmailValid(obj.register.controls.birthday.errors,elementRefBirthday)
       obj.showErrorsList(elementRefBirthday,elementRef,'.birthdayValidErrors')
     })  
