@@ -1,4 +1,5 @@
-<h2>In Touch i A whole new version of social network Sillfriend. </h2>
+# In Touch
+<h2>A whole new version of social network Sillfriend. </h2>
 <i>
 Main features in the project 
 </i>
