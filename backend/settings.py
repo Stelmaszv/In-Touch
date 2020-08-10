@@ -78,6 +78,7 @@ TEMPLATES = [
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
+AUTH_USER_MODEL= 'account.Account'
 
 DATABASES = {
     'default': {
