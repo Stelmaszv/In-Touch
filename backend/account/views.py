@@ -11,9 +11,6 @@ class register(generics.CreateAPIView):
     queryset=Account.objects.all()
     serializer_class = registerSrializer
 
-class login(APIView):
-    pass
-
 class emailAvailable(APIView):
 
     def get(self, request, *args, **kwargs):

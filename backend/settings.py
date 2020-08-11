@@ -134,6 +134,14 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, nenv_manage.DEPLOY),
 )
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ]
+}
+
 if nenv_manage.DEPLOY_SETINGS is False:
     import django_heroku
     django_heroku.settings(locals())
