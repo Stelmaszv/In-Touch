@@ -1,13 +1,13 @@
 from rest_framework.views import  APIView
 from rest_framework.response import Response
 from rest_framework import status
-from .serializer import emailValid
-from .serializer import registerSrializer
+from .serializer import emailValid,registerSrializer
 from rest_framework import generics
 from .models import Account
-from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
+from rest_framework_simplejwt.views import TokenObtainPairView
 
 class login(TokenObtainPairView):
+
     pass
 
 class register(generics.CreateAPIView):
