@@ -15,5 +15,5 @@ class emailAvailable(APIView):
     def get(self, request, id=None, *args, **kwargs):
         email = self.kwargs.get("email")
         obj=emailValid(data={'email':email,'stan':False})
-        obj.setData(email)
+        obj.setData()
         return Response(data=obj.dataShow, status=status.HTTP_200_OK)

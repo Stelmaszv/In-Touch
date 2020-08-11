@@ -10,7 +10,7 @@ class emailValid(serializers.Serializer):
             return  True
         return False
 
-    def setData(self,email):
+    def setData(self):
         stan = False
         if self.is_valid():
             stan=True
