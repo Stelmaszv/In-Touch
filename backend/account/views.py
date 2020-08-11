@@ -5,6 +5,10 @@ from .serializer import emailValid
 from .serializer import registerSrializer
 from rest_framework import generics
 from .models import Account
+from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
+
+class login(TokenObtainPairView):
+    pass
 
 class register(generics.CreateAPIView):
 
