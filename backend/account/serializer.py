@@ -19,5 +19,8 @@ class emailValid(serializers.Serializer):
             'stan' : stan,
             'Available': self.ifAvailable()
         }
-
+class registerSrializer(serializers.ModelSerializer):
+    class Meta:
+        model  = Account
+        fields =  ('email','password','sex','birthday')
 

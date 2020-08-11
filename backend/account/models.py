@@ -53,7 +53,11 @@ class Account(AbstractBaseUser):
     objects = models.Manager()
 
     def __str__(self):
-        return self.email
+        return str(self.email)+' '+str(self.ifSuperUser())
+    def ifSuperUser(self):
+        if self.is_superuser:
+            return 'SUPERUSER'
+        return ''
 
     def has_perm(self,perm,obj=None):
         return self.is_admin
