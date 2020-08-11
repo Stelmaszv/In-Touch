@@ -14,7 +14,7 @@ class emailValid(serializers.Serializer):
         stan = False
         if self.is_valid():
             stan=True
-        self.dataShow={
+        return {
             'email':self.data['email'],
             'stan' : stan,
             'Available': self.ifAvailable()

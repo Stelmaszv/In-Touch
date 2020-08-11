@@ -7,6 +7,7 @@ from rest_framework import generics
 from .models import Account
 
 class register(generics.CreateAPIView):
+
     queryset=Account.objects.all()
     serializer_class = registerSrializer
 
@@ -18,5 +19,4 @@ class emailAvailable(APIView):
     def get(self, request, *args, **kwargs):
         email = self.kwargs.get("email")
         obj=emailValid(data={'email':email,'stan':False})
-        obj.setData()
-        return Response(data=obj.dataShow, status=status.HTTP_200_OK)
+        return Response(data=obj.setData(), status=status.HTTP_200_OK)
