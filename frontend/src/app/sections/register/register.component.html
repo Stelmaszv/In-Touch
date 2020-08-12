@@ -8,7 +8,7 @@
                         {{ 'REGESTRER.emailaddressField' | translate }}
                     </label>
                     <div 
-                        class="validError bg-danger text-white emailValidErrors show-Error">
+                        class="validError bg-danger text-white emailValidErrors">
                         <div *ngIf="register.controls.email.invalid">
                             <li *ngIf="register.controls.email.errors.required">
                                 {{ 'REGESTRERVALID.emptyEmail' | translate }}
@@ -25,7 +25,6 @@
                                 *ngIf="emailSection.isBanned">
                                 {{ 'REGESTRERVALID.banedword' | translate }}
                             </li>
-                            <li class="server Error">wgrwgwr</li>
                         </div>
                     </div>
                     <div class="row">

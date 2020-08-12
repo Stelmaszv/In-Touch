@@ -1,42 +1,47 @@
 import { Injectable } from '@angular/core';
+import { HttpClient} from '@angular/common/http';
 import { banedEmails } from 'src/app/service/validator/baned'
+import {emailModel} from '../../model/emailAvailable'
+
+
+const options = {
+  headers: { 'Content-Type': ['application/json'] }
+};
+
 @Injectable({
   providedIn: 'root'
 })
 export class EmailValidService {
-  constructor() { }
+  
+  emailAvailableUrl = 'http://127.0.0.1:8000/emailAvailable/'
+
   private lenghtLimit=3
+
   private erros={
     'isInvalid':false,
     'isBanned':false,
     'isNotavailable':false
   };
+
+  constructor(private http:HttpClient) { }
+
   public getErros(){
     return this.erros
   }
-  public validate(email:string)
-  {
-    if(this.ifEmailIsValid(email)){
-      this.erros.isInvalid=false
-      if(this.isNotBanned(email)){
-        this.erros.isBanned=false
-        if(!this.isAvailable){
-          this.erros.isNotavailable=true
-        }else{
-          this.erros.isNotavailable=false
-        }
-      }else{
-        this.erros.isBanned=true
+
+  public isAvailable(email){
+    this.http.get<emailModel[]>(this.emailAvailableUrl+email,options).subscribe(
+      (data) => {
+          console.log(data)
+      },
+      (er)=>{ 
+          console.log(er)
       }
-    }else{
-      this.erros.isInvalid=true
-    }
-    return this.erros
+    )
+
   }
-  private isAvailable(email): boolean{
-    return (email=="test@123.pl") ? true : false;
-  }
-  private isNotBanned(email:string) : boolean
+
+  public isNotBanned(email:string) : boolean
   {
     let found=false
     banedEmails.forEach(element => {
@@ -45,12 +50,5 @@ export class EmailValidService {
         }
     });
     return found
-  }
-  private ifEmailIsValid(email:string) : boolean
-  {
-    if (email.length > this.lenghtLimit){
-      const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-      return re.test(String(email).toLowerCase());
-    }
   }
 }

@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     #Addons
     'rest_framework',
+    'corsheaders',
     #apps
     'backend.account'
 ]
@@ -141,6 +142,8 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.SessionAuthentication',
     ]
 }
+
+CORS_ORIGIN_WHITELIST = 'http://localhost:4200',
 
 if nenv_manage.DEPLOY_SETINGS is False:
     import django_heroku

@@ -55,7 +55,6 @@ export class RegisterComponent implements OnInit,AfterViewInit{
          }else{
            this.regulationSwich()
          }
-    
       }else{
         console.log(this.register.errors)
       }
@@ -82,15 +81,10 @@ export class RegisterComponent implements OnInit,AfterViewInit{
     let data = setData(this.register.value) 
     this.RegisterService.register(data).subscribe(
       () => {
-        console.log(data)
         this.router.navigate(['/']);
       },
       (er)=>{ 
-          if(er){
-            if(er.error.email[0]){
-              this.showServerError('.emailValidErrors',er.error.email[0])
-            }
-          }
+          console.log(er)
       }
     );
 
@@ -105,11 +99,6 @@ export class RegisterComponent implements OnInit,AfterViewInit{
 
   }
   
-  private showServerError(div:string, error:string){
-    let errorDiv=this.elementRef.nativeElement.querySelector(div)
-    errorDiv.classList.add("show-Error")
-
-  }
 
   private regulationsEvants() :void
   {
@@ -275,6 +264,7 @@ export class RegisterComponent implements OnInit,AfterViewInit{
     let elementRef=this.elementRef
     let elementRefEmail = this.elementRef.nativeElement.querySelector('.email')
     elementRefEmail.addEventListener('keyup', function() {
+      obj.RegisterService.ifAvailable(elementRefEmail.value)
       obj.addClassEmailValid(obj.register.controls.email.errors,elementRefEmail)
       obj.showErrorsList(elementRefEmail,elementRef,'.emailValidErrors')
     });
@@ -285,6 +275,7 @@ export class RegisterComponent implements OnInit,AfterViewInit{
     let el=elementRef.nativeElement.querySelector(classValid)
     let logError=elementRef.nativeElement.querySelector('.input-group-text')
     if(elementRefID.classList.contains('is-invalid')){
+      console.log('dqwdqwd')
       logError.classList.add("invalidErrorsListLogo")
       elementRefID.classList.add("invalidErrorsList")
       el.classList.add("show-Error")

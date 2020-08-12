@@ -22,6 +22,11 @@ export class RegisterService {
     return this.EmailValid.getErros()
   }
 
+  public ifAvailable(email:string)
+  {
+    return this.EmailValid.isAvailable(email)
+  }
+
   public register(data)  :Observable<registerModel[]> {
     return this.http.post<registerModel[]>(this.registerUrl,data,options) 
   }
