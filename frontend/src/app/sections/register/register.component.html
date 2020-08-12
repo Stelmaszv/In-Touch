@@ -8,8 +8,7 @@
                         {{ 'REGESTRER.emailaddressField' | translate }}
                     </label>
                     <div 
-                        class="validError bg-danger text-white emailValidErrors"  
-                    >
+                        class="validError bg-danger text-white emailValidErrors show-Error">
                         <div *ngIf="register.controls.email.invalid">
                             <li *ngIf="register.controls.email.errors.required">
                                 {{ 'REGESTRERVALID.emptyEmail' | translate }}
@@ -26,6 +25,7 @@
                                 *ngIf="emailSection.isBanned">
                                 {{ 'REGESTRERVALID.banedword' | translate }}
                             </li>
+                            <li class="server Error">wgrwgwr</li>
                         </div>
                     </div>
                     <div class="row">
@@ -66,7 +66,7 @@
                         </div>
                     </div>
                     <input 
-                        type="date" 
+                        type="datetime-local" 
                         class="form-control birthday" 
                         id="Password"
                         formControlName="birthday"
@@ -142,7 +142,10 @@
                             <li>{{ 'REGESTRERVALID.emptySex' | translate }}</li>
                         </div>
                     </div>
-                    <select class="form-control sex" formControlName="sex" placeholder="wybierz płec">
+                    <select 
+                            class="form-control sex" 
+                            formControlName="sex" 
+                            placeholder="wybierz płec">
                         <option value="male">{{ 'REGESTRER.sexFirst' | translate }}</option>
                         <option value="female">{{ 'REGESTRER.sexSecund' | translate }}</option>
                     </select>

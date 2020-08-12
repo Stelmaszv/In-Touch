@@ -1,12 +1,12 @@
-import {Component,OnInit, ElementRef,AfterViewInit} from '@angular/core';
+import {Component,OnInit, ElementRef, AfterViewInit} from '@angular/core';
 import {RegisterService} from 'src/app/service/register/register.service'
 import {PasswordValidService} from 'src/app/service/password/password-valid.service'
 import {FormControl, FormGroup} from '@angular/forms';
-import { Validators } from '@angular/forms';
+import {Validators } from '@angular/forms';
 import {dataPassed} from 'src/app/validator/register/dataPassed'
 import {posswordStrenght} from 'src/app/validator/register/posswordStrenght'
 import {passwordMatch} from 'src/app/validator/register/posswordMatch'
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -18,14 +18,15 @@ export class RegisterComponent implements OnInit,AfterViewInit{
   public constructor(
     private RegisterService:RegisterService,
     private elementRef:ElementRef,
-    private PasswordValid:PasswordValidService
+    private PasswordValid:PasswordValidService,
+    private router: Router
   ){}
   public register = new FormGroup({
     email: new FormControl('stelmaszv@gmail.com',[
       Validators.required,
       Validators.email
     ]),
-    birthday: new FormControl('',[
+    birthday: new FormControl('2020-06-05T15:00',[
       Validators.required,
       dataPassed()
     ]),
@@ -38,10 +39,10 @@ export class RegisterComponent implements OnInit,AfterViewInit{
       Validators.required,
       passwordMatch('password')
     ]),
-    sex: new FormControl('',[
+    sex: new FormControl('male',[
       Validators.required
     ]),
-    regulations: new FormControl(false,[
+    regulations: new FormControl(true,[
       Validators.required
     ]),
   });
@@ -77,9 +78,39 @@ export class RegisterComponent implements OnInit,AfterViewInit{
   
   private registerStart(): void
   {
-    console.log('add api in this place')
+
+    let data = setData(this.register.value) 
+    this.RegisterService.register(data).subscribe(
+      () => {
+        console.log(data)
+        this.router.navigate(['/']);
+      },
+      (er)=>{ 
+          if(er){
+            if(er.error.email[0]){
+              this.showServerError('.emailValidErrors',er.error.email[0])
+            }
+          }
+      }
+    );
+
+    function setData(data){
+        return {
+          "email": data.email,
+          "password": data.password,
+          "sex": data.male,
+          "birthday": data.birthday
+      }
+    }
+
   }
   
+  private showServerError(div:string, error:string){
+    let errorDiv=this.elementRef.nativeElement.querySelector(div)
+    errorDiv.classList.add("show-Error")
+
+  }
+
   private regulationsEvants() :void
   {
     let obj=this
