@@ -264,7 +264,15 @@ export class RegisterComponent implements OnInit,AfterViewInit{
     let elementRef=this.elementRef
     let elementRefEmail = this.elementRef.nativeElement.querySelector('.email')
     elementRefEmail.addEventListener('keyup', function() {
-      obj.RegisterService.ifAvailable(elementRefEmail.value)
+      obj.RegisterService.ifAvailable(elementRefEmail.value).subscribe(
+        (data) => {
+           
+           console.log(data)
+        },
+        (er)=>{ 
+            console.log(er)
+        }
+      );
       obj.addClassEmailValid(obj.register.controls.email.errors,elementRefEmail)
       obj.showErrorsList(elementRefEmail,elementRef,'.emailValidErrors')
     });

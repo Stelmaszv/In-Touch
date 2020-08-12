@@ -13,7 +13,7 @@ const options = {
 })
 export class EmailValidService {
   
-  emailAvailableUrl = 'http://127.0.0.1:8000/emailAvailable/'
+  emailAvailableUrl = 'http://127.0.0.1:8000/account/emailAvailable/'
 
   private lenghtLimit=3
 
@@ -30,15 +30,7 @@ export class EmailValidService {
   }
 
   public isAvailable(email){
-    this.http.get<emailModel[]>(this.emailAvailableUrl+email,options).subscribe(
-      (data) => {
-          console.log(data)
-      },
-      (er)=>{ 
-          console.log(er)
-      }
-    )
-
+    return this.http.get<emailModel[]>(this.emailAvailableUrl+email+'/',options)
   }
 
   public isNotBanned(email:string) : boolean
