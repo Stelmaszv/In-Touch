@@ -11,8 +11,6 @@ import os
 from backend.nenv import nenv_manage
 nenv_manage=nenv_manage()
 
-
-
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -32,7 +30,6 @@ ALLOWED_HOSTS = nenv_manage.ALLOWED_HOSTS
 # Application definition
 
 INSTALLED_APPS = [
-    'channels',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -42,6 +39,7 @@ INSTALLED_APPS = [
     #Addons
     'rest_framework',
     'corsheaders',
+    'channels',
     #apps
     'backend.account'
 ]

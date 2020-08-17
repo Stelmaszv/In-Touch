@@ -1,0 +1,63 @@
+{
+    "AUTHLOGIN": {
+        "LOGIN":"logowanie" ,
+        "REGESTRER":"rejestracja" 
+    },
+    "FOOTER":{
+        "chooseLanguage":"wybierz język",
+        "regulations":"regulamin",
+        "createdby":"stworzony przez",
+        "about": "o portalu"
+    },
+    "REGULATIONS":{
+        "title":"Regulamin"
+    },
+    "ABOUT":{
+        "title":"O portalu"
+    },
+    "LOGIN":{
+        "title":"Logowanie",
+        "emailaddressField":"Adres email" ,
+        "emailHelp":"Nikomu nie podajemy twojego adressu email",
+        "passwordField":"Hasło",
+        "rememborButton":"Pamietaj Mnie",
+        "loginButton":"Zaloguj mnie",
+        "IdonthaveAccount":"Nie mam konta",
+        "paswordForget":"Zapomniałem haslo"
+    },
+    "REGESTRER":{
+        "title":"Rejestracjia", 
+        "EmailaddressField":"Adres email" ,
+        "emailHelp":"Nikomu nie podajemy twojego adressu email",
+        "passwordField":"Hasło",
+        "passwordhelp":"Bespieczne hasło powino zawierać conajmniej 12 znnaków w tym znaki cyfry duze i małe litery oraz znaki specjalne",
+        "passwordRepeat":"Powrórz Hasło",
+        "birthday":"Data urodzenia",
+        "sexField":"Płeć",
+        "sexFirst":"Mężczyzna",
+        "sexSecund":"Kobieta",
+        "regulations":"Akceptuje regulamin",
+        "registerButton":"Rejestruj",
+        "iarledyhaveAccountButton":"Już mam konto"
+    },
+    "REGESTRERVALID":{
+        "emptyEmail":"Podaj emial",
+        "invalidEmail":"Nie poprawy emial 'np.samething@home.com'",
+        "notaverible":"Email samething@home.com jest zajety",
+        "emptyBirthday":"Nie wybrano daty urodzenia",
+        "inValidbirthday":"Podana data nie moze byc wieksza od dzisejszej",
+        "emptyPassword":"Podaj hasło",
+        "passtoWeek":"Hasło jest za słabe 'Bespieczne hasło powino zawierać conajmniej 12 znnaków w tym znaki cyfry duze i małe litery oraz znaki specjalne'",
+        "passNotthesame":"Hasło nie sa takie same",
+        "emptyPassrepat":"Powtórz hasło",
+        "emptySex":"Nie wybrano Płci",
+        "regulationsNotacept":"Nie zakceptowono regulaminu"
+    },
+    "CHOOSELANGUAGE":{
+        "title":"Wybierz język"
+    },
+    "LOGINVALID":{
+        "invalidData":"Nie poprawny email albo haslo",
+        "isNotActive":"Konto zostało zbanowane"
+    }
+}
